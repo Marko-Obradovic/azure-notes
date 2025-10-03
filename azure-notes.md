@@ -82,11 +82,11 @@ Describe the consumption-based model
 -
 >>> Context
 CapEx (Capital Expenditure):
-One-time, up-front expenditure or purchase or secure tangible resources.
-e.g:
-    - A new building
-    - Repaving the parking lot
-    - Building a datacenter
+    One-time, up-front expenditure or purchase or secure tangible resources.
+    e.g:
+        - A new building
+        - Repaving the parking lot
+        - Building a datacenter
 
 OpEx (Operational Expenditure):
 Spending money on services or products over time.
