@@ -80,22 +80,19 @@ Define each cloud model and outline their pros, cons and use cases:
 
 Describe the consumption-based model
 -
->>> Context
 CapEx (Capital Expenditure):
     One-time, up-front expenditure or purchase or secure tangible resources.
     e.g:
-        - A new building
-        - Repaving the parking lot
-        - Building a datacenter
+    - A new building
+    - Repaving the parking lot
+    - Building a datacenter
 
 OpEx (Operational Expenditure):
-Spending money on services or products over time.
-e.g:
+    Spending money on services or products over time.
+    e.g:
     - Renting a convention center
     - Leasing a company vehicle
     - Signing up for cloud services
-
->>>
 
 Cloud computing falls under OpEx.
 With Cloud Computing, you don't pay for physical infrastructure, electricity, security, or anything associated with maintaining a datacenter.
@@ -116,11 +113,11 @@ Pay for services on Azure according to actual usage
     - Billed per second
     - No long term commitment or upfront payment
 
-• Benefits:
+Benefits:
     - Flexibility to increase/decrease resources as needed
     - VMs can be scaled automatically
     
-• Suitable for:
+Suitable for:
     - Users that prefer flexibility
     - Users that prefer to convert capital expenses into operating expenses
     - Users that Host applications with volatile/short term workloads
@@ -131,10 +128,10 @@ You can purchase Reserved Virtual Machine Instances (RVMI's) for 1 or 3 years in
     - Can cancel, but there is an early termination fee
     - Can replace reserved instances during commitment period
     
-• Benefits:
+Benefits:
     - Save up to 72% compared to Pay as you go.
 
-• Suitable for:
+Suitable for:
     - Apps with stable ongoing use
     - Organizations with a fixed budget
     - Large Scale applications where a certain amount of virtual machines are always in use
@@ -156,9 +153,6 @@ Suitable for:
     - Workloads that aren't urgent
     - Heavily parellalized workloads
 
-• Suitable for:
-    - 
-    
 Describe serverless 
 -
 Definition: A provided infrastructure and runtime environment to deploy applications rapidly.
@@ -188,15 +182,43 @@ https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-s
 
 High availability: 
 -
+Definition: Ensuring your app is available regardless of disruptions
 
-High Scalability:
+Benefits: The higher your app's availability, the more time you save end-users in down-time. They can accomplish more.
+
+Cons: The higher the service's availability, the more it will cost to run and keep at a high availability. This will then be more expensive for the end user.
+
+Extra: When you're architecturing an app, you need to account for service availability guarantees (part of SLAs)
+
+Scalability:
 -
+Definition: The ability to adjust resources to meet demand.
+
+Benefits:
+    - If you experience high traffic, you can add resources to handle it.
+    - If demand drops, you can use less resources and pay less.
 
 Reliability
 -
+The ability of a system to recover from failure and continue to function.
+The cloud allows you to have reliable and resilient infrastructure because it gives you access to deploy resources all around the world.
+
+Benefit: If one region has a catastrophic event, the other regions are available to use.
 
 Predictability 
 -
+Performance Predictability: 
+    Because of things like 
+        - Auto scaling
+        - Load balancing
+        - High availability
+    You can predicting the resources needed to deliver a positive experience for your customers.
+
+Cost Predictability:
+    You can use:
+        - Total Cost of Ownership (TCO)
+        - Pricing calculator to predict cost potential
+    You can track resource usage in real time and monitor resources to make sure they're being used efficiently.
 
 Security
 -
@@ -241,47 +263,156 @@ In practice:
 https://www.bigcommerce.co.uk/articles/ecommerce/saas-vs-paas-vs-iaas/
 Define and outline the examples, use cases and responsibilities of:
 -
-    - IaaS 
-        Definition: IaaS services provide virtualized computing resources over the internet
-        Examples:
-            - Azure Virtual Machines
-            - Azure Virtual Network
-            - Azure Load Balancer
-        Use Cases:
-        Your Responsibilities: (Reference table above)
-        Provider's Responsibilities: (Reference table above)
-        Shared Responsibilities: None
-    - PaaS
-        Definition: PaaS lets you build, deploy, and manage applications without managing infrastructure 
-        Examples:
-            - Azure Functions
-            - Azure SQL Database
-            - Azure Kubernetes Service (AKS)
-        Use Cases:
-        Your Responsibilities: (Reference table above)
-        Provider's Responsibilities: (Reference table above)
-        Shared Responsibilities: (Reference table above)
-    - SaaS 
-        Definition:
-        Examples:
-        Use Cases:
-        Your Responsibilities: (Reference table above)
-        Provider's Responsibilities: (Reference table above)
-        Shared Responsibilities: (Reference table above)
+☁️ 1. Infrastructure as a Service (IaaS)
+Definition: IaaS provides virtualized computing resources over the internet, such as servers, storage, and networking, allowing users to run applications without buying physical hardware.
+
+Examples:
+    - Azure Virtual Machines
+    - Azure Virtual Network
+    - Azure Load Balancer
+
+Advantages:
+    - Full control over infrastructure and operating systems
+    - Highly scalable and flexible for various workloads
+    - Pay-as-you-go pricing reduces upfront costs
+    - Ideal for hosting legacy applications or custom environments
+
+Disadvantages:
+    - Requires technical expertise to manage and maintain
+    - Users are responsible for updates, patches, and security
+    - Can become costly if not properly optimized
+
+🧱 2. Platform as a Service (PaaS)
+Definition: PaaS lets you build, deploy, and manage applications without managing infrastructure like servers or storage.
+
+Primarily Used By:
+    - Developers building software or applications
+
+Examples:
+    - Azure Functions – Serverless compute
+    - Azure SQL Database – Managed relational database
+    - Azure Kubernetes Service (AKS)
+
+Advantages:
+    - Developers don’t need to start from scratch — saves time and money
+    - Built-in tools for deployment, scaling, and monitoring
+    - Supports rapid development and continuous integration
+    - Reduces infrastructure management overhead
+
+Disadvantages:
+    - Limited control over underlying infrastructure
+    - May not support all legacy or custom applications
+    - Risk of vendor lock-in due to proprietary services
+
+🌐 3. Software as a Service (SaaS)
+Definition: SaaS platforms deliver software applications over the internet, managed by a third-party provider.
+
+Examples:
+    - Microsoft 365
+    - Microsoft Teams
+
+Advantages:
+    - No need to install or maintain software locally
+    - Accessible from anywhere with internet
+    - Centralized platform for teams and organizations
+    - Easy role-based access and automatic updates
+    - Subscription-based pricing
+
+Disadvantages:
+    - Data security concerns due to third-party hosting
+    - Limited customization and integration options
+    - Less control over performance, features, and data handling
 
 # Describe Azure architecture and services (35–40%) 
 
 ## Describe the core architectural components of Azure
-Describe Azure regions, region pairs, and sovereign regions
+Describe Azure regions
 -
-Describe availability zones
+https://idodata.com/2025/05/06/az-900-describe-azure-regions-region-pairs-and-sovereign-regions/
+A specific geographic area that contains one or more data centers.
+
+Each region offers redundancy, scalability, and availability for Azure services.
+
+Advantage:
+    - Regions help businesses meet data residency requirements, such as regulations requiring data to remain within a specific geographic boundary (e.g., Europe).
+
+
+Region Pairs,
 -
+Azure pairs each region with another region in the same geography, typically at least 300 miles apart. This strategy is known as a region pair.
+
+Benefits:
+    - Region pairs are designed to enhance high availability and disaster recovery:
+    - If one region fails or is affected by an outage, services can failover to the paired region.
+
+Extra:
+    - In the event of a geographic disaster affecting both regions, Azure prioritizes recovery for one of them.
+    - Planned updates are intentionally not deployed simultaneously to both regions in a pair to reduce risk.
+
+Sovereign regions
+-
+Specially isolated Azure environments designed to meet strict national and governmental requirements.
+
+1. United States Sovereign Regions
+2. China Sovereign Regions
+3. Germany Sovereign Region
+
 Describe Azure datacenters
 -
+https://idodata.com/2025/05/08/az-900-describe-azure-datacenters/
+An Azure datacenter is a physical building that contains large numbers of networked computer servers.
+
+Each datacenter is located in a specific geographic location, chosen based on accessibility, climate stability, and regional demand.
+Azure datacenters are designed to be self-sufficient, each with its own power supply, cooling systems, and network infrastructure.
+Resources are not shared between datacenters, helping to reduce the risk of systemic failure.
+
+
+Describe availability zones
+-
+https://learn.microsoft.com/en-us/azure/reliability/availability-zones-overview?tabs=azure-cli
+
+An availability zone is a logical grouping of one or more physically separate datacenters within a region.
+Each availability zone is built in a way that if something goes wrong in one (like a power outage or network issue), the others keep working.
+A single datacenter doesn’t offer this level of protection on its own.
+
+Each availability zone has independent:
+    - Power
+    - Cooling
+    - Networking infrastructure.
+
+Generally, thay're separated by several kilometers, and within 100 kilometers of each other.
+    - Close enough for low-latency connections to other availability zones.
+    - Far enough apart to reduce the chance more than one will be affected by local outages/weather.
+
+Example Azure regions - regions 1 supports availability zones, region doesn't have availability zones.
+├── Azure Region 1
+│   ├── Availability Zone 1
+│   │   └── Datacenter(s)
+│   ├── Availability Zone 2
+│   │   └── Datacenter(s)
+│   └── Availability Zone 3
+│       └── Datacenter(s)
+└── Azure Region 2
+    └── Datacenter(s)
+
+
 Describe Azure resources and resource groups
 -
+An Azure resource is any manageable item available through Azure.
+
+Examples:
+    - Virtual Machines (VMs)
+    - Storage Accounts
+    - Web Apps
+    - Databases
+    - Virtual Networks
+
+Resources are created, deployed, and managed using tools like the Azure Portal, CLI, PowerShell, or ARM templates.
+Each resource has properties like location, type, and pricing tier.
+
 Describe subscriptions
 -
+
 Describe management groups
 -
 Describe the hierarchy of resource groups, subscriptions, and management groups
