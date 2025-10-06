@@ -426,28 +426,69 @@ You decide how to allocate resources to resource groups based on what makes the 
 Generally, resources sharing the same lifecycle share a resource group so it's easier to deploy, update, and delete them as a group.
 
 The Azure portal uses the resource group scope to create views that span across multiple resources. For example:
-    - Metrics blade                 ->  Metrics info like CPU/resources.
-    - Deployments blade             ->  ARM template/Bicep deployment history of that resource group (includes portal deployments).
-    - Policy blade                  ->  Info related to policies enforced on the resource group.
-    - Diagnostics settings blade    ->  Errors/warnings to review.
+- Metrics blade                 ->  Metrics info like CPU/resources.
+- Deployments blade             ->  ARM template/Bicep deployment history of that resource group (includes portal deployments).
+- Policy blade                  ->  Info related to policies enforced on the resource group.
+- Diagnostics settings blade    ->  Errors/warnings to review.
 
 The resource group stores metadata about the resources.
 Specifying a location for the resource group dictates where that metadata is stored.
 For compliance reasons, you might need to ensure that your data is stored in a particular region.
 Resources inside a resource group can be in different regions.
 
-Describe subscriptions
--
-
-
 Describe management groups
 -
-Describe the hierarchy of resource groups, subscriptions, and management groups
+
+Describe subscriptions
+-
+https://www.alifconsulting.com/post/azure-subscription
+
+An Azure subscription is a logical container used to provision resources in Azure.
+It holds the details of all resources.
+
+You can identify each resource by the subscription it belongs to.
+As the VM is used, VM usage is aggregated and billed monthly. 
+
+Boundaries:
+1. Billing boundary
+    - Defines billing requirements for accessing resources.
+    - Each subscription has a separate billing so that multiple subscriptions can be created as per business needs. 
+2. Access control boundary 
+    - To separate subscriptions and apply different management policies, an access control boundary can be constructed at the subscription level. This helps represent diverse organizational structures and enforce governance effectively.
+    - An Access Control Boundary is not a resource.
+    - It’s a security and governance boundary, typically applied at the subscription level.
+    - It’s enforced through settings like:
+        - Role-Based Access Control (RBAC): Who can do what
+        - Azure Policy: What can be done and how
+        - Resource locks and tags: Additional governance tools
+
+Azure Governance Hierarchy
+-
+└── Business Unit
+    └── Geography (e.g., England)
+        ├── Environment (e.g., Production)
+        │   └── Management Group
+        │       ├── Subscription A  ← [Access Control Boundary + Billing Boundary can be added]
+        │       │   ├── Resource Group 1
+        │       │   │   ├── Resource: Virtual Machine
+        │       │   │   ├── Resource: Storage Account
+        │       │   │   └── Resource: Virtual Network
+        │       │   └── Resource Group 2
+        │       │       ├── Resource: Azure SQL Database
+        │       │       └── Resource: Azure Function
+        │       └── Subscription B  ← [Access Control Boundary + Billing Boundary can be added]
+        │           └── Resource Group 3
+        │               ├── Resource: Web App
+        │               └── Resource: Key Vault
+        └── Environment (e.g., Non-Production)
+            └── Management Group
+                └── ...
 -
 
 ## Describe Azure storage services 
 Compare Azure Storage services 
 -
+
 Describe storage tiers 
 -
 Describe redundancy options 
