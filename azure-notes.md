@@ -396,7 +396,7 @@ Example Azure regions - regions 1 supports availability zones, region doesn't ha
     └── Datacenter(s)
 
 
-Describe Azure resources and resource groups
+Resources:
 -
 An Azure resource is any manageable item available through Azure.
 
@@ -410,8 +410,35 @@ Examples:
 Resources are created, deployed, and managed using tools like the Azure Portal, CLI, PowerShell, or ARM templates.
 Each resource has properties like location, type, and pricing tier.
 
+Azure Solution:
+-
+A conceptual bundle of services and resources designed to solve a specific business or technical need.
+Example: A web hosting solution might include App Service, SQL Database, Key Vault, and CDN.
+
+Resource Groups:
+-
+A container that holds related Azure resources for a solution.
+Example: You might place all the resources from your web hosting solution into one resource group.
+
+The resource group can include all the resources for the solution or only resources that you want to manage as a group.
+You decide how to allocate resources to resource groups based on what makes the most sense for your organization.
+
+Generally, resources sharing the same lifecycle share a resource group so it's easier to deploy, update, and delete them as a group.
+
+The Azure portal uses the resource group scope to create views that span across multiple resources. For example:
+    - Metrics blade                 ->  Metrics info like CPU/resources.
+    - Deployments blade             ->  ARM template/Bicep deployment history of that resource group (includes portal deployments).
+    - Policy blade                  ->  Info related to policies enforced on the resource group.
+    - Diagnostics settings blade    ->  Errors/warnings to review.
+
+The resource group stores metadata about the resources.
+Specifying a location for the resource group dictates where that metadata is stored.
+For compliance reasons, you might need to ensure that your data is stored in a particular region.
+Resources inside a resource group can be in different regions.
+
 Describe subscriptions
 -
+
 
 Describe management groups
 -
