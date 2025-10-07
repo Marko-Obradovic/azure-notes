@@ -243,13 +243,10 @@ governance ensures your cloud resources stay compliant, consistent, and under co
 
 In practice, this means:
     - ARM templates/policies make sure resources are deployed with the right config.
-
     - Compliance & Audit tools scan your environment for resources that don’t meet standards:
         - Azure Policy
         - Blueprints
-
     - Automatic Updates to Standards across the whole cloud environment.
-
     - Centralized Management over who can deploy what, where, and how.
 
 Describe the benefits of manageability in the cloud 
@@ -443,6 +440,8 @@ Resources inside a resource group can be in different regions.
 
 Management groups
 =================
+https://learn.microsoft.com/en-us/azure/governance/management-groups/overview
+
 Management groups provide a scalable way to manage access, policies, and compliance across multiple Azure subscriptions. They offer a governance scope above subscriptions, enabling centralized control and consistency.
 
 Key Features:
@@ -517,8 +516,19 @@ Azure Governance Hierarchy
         │   └── Management Group
         │       ├── Subscription A  ← [Access Control Boundary + Billing Boundary can be added]
         │       │   ├── Resource Group 1
+        │       │   │   ├── Storage Account
+        │       │   │   │   ├── Blob Containers
+        │       │   │   │   │   └── Blobs (files)
+        │       │   │   │   ├── File Shares
+        │       │   │   │   │   └── Files & Directories
+        │       │   │   │   ├── Queues
+        │       │   │   │   │   └── Messages
+        │       │   │   │   ├── Tables
+        │       │   │   │   │   └── Entities
+        │       │   │   │   └── Data Lake Gen2 (if enabled)
+        │       │   │   │       └── File System
+        │       │   │   │       └── Directories & Files
         │       │   │   ├── Resource: Virtual Machine
-        │       │   │   ├── Resource: Storage Account
         │       │   │   └── Resource: Virtual Network
         │       │   └── Resource Group 2
         │       │       ├── Resource: Azure SQL Database
@@ -685,6 +695,8 @@ Use Cases:
 
 Describe storage tiers 
 =======================
+https://learn.microsoft.com/en-us/azure/storage/blobs/access-tiers-overview
+
 To manage costs for expanding storage needs, it can be helpful to organize data based on access frequency and retention time.
 Different access tiers exist so blob data can be stored cost-effectively based on its usage.
 
@@ -720,12 +732,137 @@ Azure Storage access tiers:
     Azure storage capacity limits are set at the account level, rather than according to access tier.
     You can choose to maximize your capacity usage in one tier, or to distribute capacity across two or more tiers.
 
+Storage Accounts  
+===================================================
+A storage account contains Azure Storage data objects:
+    - Blobs
+    - Files
+    - Queues
+    - Tables
+
+The storage account provides a unique namespace for your Azure Storage data that's accessible from anywhere in the world over HTTP or HTTPS.
+Data in your storage account is durable and highly available, secure, and massively scalable.
+
+Storage Types
+=============
+
+Standard general-purpose v2
+---------------------------
+Supported Storage Services:
+  - Blob Storage (including Data Lake Storage)
+  - Queue Storage
+  - Table Storage
+  - Azure Files
+Redundancy Options:
+  - Locally redundant storage (LRS)
+  - Geo-redundant storage (GRS)
+  - Read-access geo-redundant storage (RA-GRS)
+  - Zone-redundant storage (ZRS)
+  - Geo-zone-redundant storage (GZRS)
+  - Read-access geo-zone-redundant storage (RA-GZRS)
+Usage:
+  - Standard storage account type for blobs, file shares, queues, and tables.
+  - Recommended for most scenarios using Azure Storage.
+  - For NFS support in Azure Files, use the premium file shares account type.
+
+Premium block blobs
+-------------------
+Supported Storage Services:
+  - Blob Storage (including Data Lake Storage)
+Redundancy Options:
+  - Locally redundant storage (LRS)
+  - Zone-redundant storage (ZRS)
+Usage:
+  - Premium storage account type for block blobs and append blobs.
+  - Recommended for scenarios with high transaction rates, smaller objects, or consistently low storage latency.
+
+Premium file shares
+-------------------
+Supported Storage Services:
+  - Azure Files
+Redundancy Options:
+  - Locally redundant storage (LRS)
+  - Zone-redundant storage (ZRS)
+Usage:
+  - Premium storage account type for file shares only.
+  - Recommended for enterprise or high-performance scale applications.
+  - Supports both Server Message Block (SMB) and NFS file shares.
+
+Premium page blobs
+------------------
+Supported Storage Services:
+  - Page blobs only
+Redundancy Options:
+  - Locally redundant storage (LRS)
+  - Zone-redundant storage (ZRS)
+Usage:
+  - Premium storage account type for page blobs only.
+  - Learn more about page blobs and sample use cases.
+
+
 Describe redundancy options 
 ============================
-Describe storage account options and storage types 
-===================================================
+Azure Storage always stores multiple copies of your data to protect it from planned/unplanned events.
+Examples of these events:
+    - Transient hardware failures
+    - Network or power outages
+    - Massive natural disasters
+
+Redundancy ensures that your storage account meets its availability and durability targets even in the face of failures.
+
+Finding the right redundancy option boils down to tradeoffs between lower costs + higher availability.
+Factors to determine the right redundancy option:
+    - How is your data replicated within the primary region?
+    - Geo-replication: Is data replicated from a primary region to a second, geographically distant region, to protect against regional disasters? 
+    - Geo-replication with read access: Does your application need read access to the replicated data in the secondary region during an outage in the primary region?
+
+The services that comprise Azure Storage are managed through a common Azure resource called a storage account.
+The storage account represents a shared pool of storage that can be used to deploy storage resources such as:
+    - Blob containers (Blob Storage)
+    - File shares (Azure Files)
+    - Tables (Table Storage)
+    - Queues (Queue Storage)
+    
+**Redundancy Options in Azure Storage:**
+
+Locally Redundant Storage (LRS)
+-------------------------------
+Data is replicated three times within a single data center in one region.
+Lowest cost option.
+Protects against hardware failures but not data center outages.
+
+Zone-Redundant Storage (ZRS)
+----------------------------
+Data is synchronously replicated across three Azure availability zones within one region.
+Offers higher availability and durability than LRS.
+Protects against zone-level failures.
+
+Geo-Redundant Storage (GRS)
+---------------------------
+Data is replicated to a secondary region hundreds of miles away from the primary region.
+Asynchronous replication.
+Protects against regional outages but read access to secondary is not available by default.
+
+Read-Access Geo-Redundant Storage (RA-GRS)
+------------------------------------------
+Same as GRS, but allows read access to the secondary region.
+Useful for applications that need high availability even during regional outages.
+
+Geo-Zone-Redundant Storage (GZRS)
+---------------------------------
+Combines ZRS in the primary region with asynchronous replication to a secondary region.
+Offers both zone-level and regional protection.
+
+Read-Access Geo-Zone-Redundant Storage (RA-GZRS)
+------------------------------------------------
+Same as GZRS, but includes read access to the secondary region.
+Ideal for mission-critical applications requiring maximum availability.
+
+
 Identify options for moving files, including AzCopy, Azure Storage Explorer, and Azure File Sync 
 =================================================================================================
+
+
 Describe migration options, including Azure Migrate and Azure Data Box 
 =======================================================================
 
