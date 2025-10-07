@@ -436,8 +436,47 @@ Specifying a location for the resource group dictates where that metadata is sto
 For compliance reasons, you might need to ensure that your data is stored in a particular region.
 Resources inside a resource group can be in different regions.
 
-Describe management groups
-==========================
+Management groups
+=================
+Management groups provide a scalable way to manage access, policies, and compliance across multiple Azure subscriptions. They offer a governance scope above subscriptions, enabling centralized control and consistency.
+
+Key Features:
+    - Governance Inheritance: Policies + access controls applied to a management group automatically cascade to all child groups and subscriptions.
+    - Enterprise-Grade Management: Supports large-scale environments, regardless of subscription type.
+    - Microsoft Entra Integration: All subscriptions within a management group must be associated with the same Microsoft Entra tenant.
+
+Example:
+    You can apply a policy at the management group level to restrict VM creation to specific regions.
+    This policy will automatically apply to all nested management groups, subscriptions, and resources.
+
+Governance Hierarchy
+Management groups allow you to build a hierarchical structure that mirrors your organization’s needs.
+Example:
+
+                  ┌───────────────────────────┐   ┌───────────────────────────────┐
+                  │   👥 MANAGEMENT GROUPS    │   │   🔑 SUBSCRIPTIONS            │
+Tenant Root Group │                           │   │                               │
+└─────────────────┼── Contoso                 │   │                               │
+                  │   ├── Platform            │   │                               │      
+                  │   │   ├── Management      │   │                               │      
+                  │   │   │   └───────────────┼───┼── Management Subscription     │      
+                  │   │   ├── Connectivity    │   │                               │      
+                  │   │   │   └───────────────┼───┼── Connectivity Subscription   │      
+                  │   │   ├── Identity        │   │                               │      
+                  │   │   │   └───────────────┼───┼── Identity Subscription       │      
+                  │   ├── │Landing Zones      │   │                               │      
+                  │   │   ├── SAP             │   │                               │      
+                  │   │   ├── Corp            │   │                               │      
+                  │   │   │   ├───────────────┼───┼── Landing Zone A1             │      
+                  │   │   │   └───────────────┼───┼── Landing Zone A2             │      
+                  │   │   ├── Online          │   │                               │      
+                  │   ├── Decommissioned      │   │                               │      
+                  │   │   └───────────────────┼───┼── Decommissioned Subscription │      
+                  │   └── Sandbox             │   │                               │      
+                  │       ├───────────────────┼───┼── Sandbox Subscription 1      │      
+                  │       └───────────────────┼───┼── Sandbox Subscription 2      │      
+                  └───────────────────────────┘   └───────────────────────────────┘      
+
 
 Describe subscriptions
 ======================
