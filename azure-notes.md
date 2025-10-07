@@ -157,10 +157,12 @@ Describe serverless
 ====================
 Definition: A provided infrastructure and runtime environment to deploy applications rapidly.
 You don't need to worry about the:
+```
     - Infrastructure
     - Scaling ─────────┐
-    - Provisioning ────├───[of VMs]
+    - Provisioning ────┼───[of VMs]
     - Management ──────┘
+```
 
 You manage apps, pay for resources consumed, and stop when the app is idle.
 
@@ -384,6 +386,7 @@ Generally, thay're separated by several kilometers, and within 100 kilometers of
     - Close enough for low-latency connections to other availability zones.
     - Far enough apart to reduce the chance more than one will be affected by local outages/weather.
 
+```
 Example Azure regions - regions 1 supports availability zones, region doesn't have availability zones.
 ├── Azure Region 1
 │   ├── Availability Zone 1
@@ -394,7 +397,7 @@ Example Azure regions - regions 1 supports availability zones, region doesn't ha
 │       └── Datacenter(s)
 └── Azure Region 2
     └── Datacenter(s)
-
+```
 
 Resources:
 ==========
@@ -426,10 +429,12 @@ You decide how to allocate resources to resource groups based on what makes the 
 Generally, resources sharing the same lifecycle share a resource group so it's easier to deploy, update, and delete them as a group.
 
 The Azure portal uses the resource group scope to create views that span across multiple resources. For example:
+```
 - Metrics blade                 ->  Metrics info like CPU/resources.
 - Deployments blade             ->  ARM template/Bicep deployment history of that resource group (includes portal deployments).
 - Policy blade                  ->  Info related to policies enforced on the resource group.
 - Diagnostics settings blade    ->  Errors/warnings to review.
+```
 
 The resource group stores metadata about the resources.
 Specifying a location for the resource group dictates where that metadata is stored.
@@ -505,6 +510,7 @@ Boundaries:
 
 Azure Governance Hierarchy
 ==========================
+```
 └── Business Unit
     └── Geography (e.g., England)
         ├── Environment (e.g., Production)
@@ -524,7 +530,8 @@ Azure Governance Hierarchy
         └── Environment (e.g., Non-Production)
             └── Management Group
                 └── ...
--
+```
+
 
 ## Describe Azure storage services 
 Compare Azure Storage services 
