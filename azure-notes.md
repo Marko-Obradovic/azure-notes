@@ -2,11 +2,11 @@
 
 ## Describe cloud computing 
 Define cloud computing 
--
+======================
 A service that provides computational resources over the internet.
 
 Describe the shared responsibility model 
--
+========================================
 A framework which defines the division of responsibilities between the customer and provider.
 
 Always the customer's responsibility:
@@ -37,8 +37,8 @@ Service type dependant:
             PaaS: Cloud Provider
             SaaS: Cloud Provider
 
-Define each cloud model and outline their pros, cons and use cases:  
--
+Define each cloud model and outline their pros, cons and use cases  
+==================================================================
 1. Public:
     Definition:
         - A third-party service providing online computational resources
@@ -79,7 +79,7 @@ Define each cloud model and outline their pros, cons and use cases:
         - An environment where you deal with 2 or more public cloud providers and manage resources and security in both environments.
 
 Describe the consumption-based model
--
+====================================
 CapEx (Capital Expenditure):
     One-time, up-front expenditure or purchase or secure tangible resources.
     e.g:
@@ -105,7 +105,7 @@ Benefits:
     - Stop paying when you don't
 
 Compare cloud pricing models 
--
+============================
 (https://spot.io/resources/azure-pricing/the-complete-guide/) 
 1. Pay as you go
 
@@ -154,7 +154,7 @@ Suitable for:
     - Heavily parellalized workloads
 
 Describe serverless 
--
+====================
 Definition: A provided infrastructure and runtime environment to deploy applications rapidly.
 You don't need to worry about the:
     - Infrastructure
@@ -181,7 +181,7 @@ Cons:
 https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/ 
 
 High availability: 
--
+===================
 Definition: Ensuring your app is available regardless of disruptions
 
 Benefits: The higher your app's availability, the more time you save end-users in down-time. They can accomplish more.
@@ -191,7 +191,7 @@ Cons: The higher the service's availability, the more it will cost to run and ke
 Extra: When you're architecturing an app, you need to account for service availability guarantees (part of SLAs)
 
 Scalability:
--
+============
 Definition: The ability to adjust resources to meet demand.
 
 Benefits:
@@ -199,14 +199,14 @@ Benefits:
     - If demand drops, you can use less resources and pay less.
 
 Reliability
--
+===========
 The ability of a system to recover from failure and continue to function.
 The cloud allows you to have reliable and resilient infrastructure because it gives you access to deploy resources all around the world.
 
 Benefit: If one region has a catastrophic event, the other regions are available to use.
 
 Predictability 
--
+===============
 Performance Predictability: 
     Because of things like 
         - Auto scaling
@@ -221,7 +221,7 @@ Cost Predictability:
     You can track resource usage in real time and monitor resources to make sure they're being used efficiently.
 
 Security
--
+========
 Security makes sure your cloud is safe from attacks, with flexibility in how much you manage yourself.
 
 In practice, this means:
@@ -236,7 +236,7 @@ In practice, this means:
         - Defender
 
 Governance 
--
+===========
 governance ensures your cloud resources stay compliant, consistent, and under control
 
 In practice, this means:
@@ -251,7 +251,7 @@ In practice, this means:
     - Centralized Management over who can deploy what, where, and how.
 
 Describe the benefits of manageability in the cloud 
--
+====================================================
 Manageability: How you manage your cloud resources.
 In practice:
     - Automatic resource scaling
@@ -262,7 +262,7 @@ In practice:
 ## Describe cloud service types 
 https://www.bigcommerce.co.uk/articles/ecommerce/saas-vs-paas-vs-iaas/
 Define and outline the examples, use cases and responsibilities of:
--
+===================================================================
 ☁️ 1. Infrastructure as a Service (IaaS)
 Definition: IaaS provides virtualized computing resources over the internet, such as servers, storage, and networking, allowing users to run applications without buying physical hardware.
 
@@ -327,7 +327,7 @@ Disadvantages:
 
 ## Describe the core architectural components of Azure
 Describe Azure regions
--
+======================
 https://idodata.com/2025/05/06/az-900-describe-azure-regions-region-pairs-and-sovereign-regions/
 A specific geographic area that contains one or more data centers.
 
@@ -338,7 +338,7 @@ Advantage:
 
 
 Region Pairs,
--
+=============
 Azure pairs each region with another region in the same geography, typically at least 300 miles apart. This strategy is known as a region pair.
 
 Benefits:
@@ -350,7 +350,7 @@ Extra:
     - Planned updates are intentionally not deployed simultaneously to both regions in a pair to reduce risk.
 
 Sovereign regions
--
+=================
 Specially isolated Azure environments designed to meet strict national and governmental requirements.
 
 1. United States Sovereign Regions
@@ -358,7 +358,7 @@ Specially isolated Azure environments designed to meet strict national and gover
 3. Germany Sovereign Region
 
 Describe Azure datacenters
--
+==========================
 https://idodata.com/2025/05/08/az-900-describe-azure-datacenters/
 An Azure datacenter is a physical building that contains large numbers of networked computer servers.
 
@@ -368,7 +368,7 @@ Resources are not shared between datacenters, helping to reduce the risk of syst
 
 
 Describe availability zones
--
+===========================
 https://learn.microsoft.com/en-us/azure/reliability/availability-zones-overview?tabs=azure-cli
 
 An availability zone is a logical grouping of one or more physically separate datacenters within a region.
@@ -397,7 +397,7 @@ Example Azure regions - regions 1 supports availability zones, region doesn't ha
 
 
 Resources:
--
+==========
 An Azure resource is any manageable item available through Azure.
 
 Examples:
@@ -411,12 +411,12 @@ Resources are created, deployed, and managed using tools like the Azure Portal, 
 Each resource has properties like location, type, and pricing tier.
 
 Azure Solution:
--
+===============
 A conceptual bundle of services and resources designed to solve a specific business or technical need.
 Example: A web hosting solution might include App Service, SQL Database, Key Vault, and CDN.
 
 Resource Groups:
--
+================
 A container that holds related Azure resources for a solution.
 Example: You might place all the resources from your web hosting solution into one resource group.
 
@@ -437,10 +437,10 @@ For compliance reasons, you might need to ensure that your data is stored in a p
 Resources inside a resource group can be in different regions.
 
 Describe management groups
--
+==========================
 
 Describe subscriptions
--
+======================
 https://www.alifconsulting.com/post/azure-subscription
 
 An Azure subscription is a logical container used to provision resources in Azure.
@@ -463,7 +463,7 @@ Boundaries:
         - Resource locks and tags: Additional governance tools
 
 Azure Governance Hierarchy
--
+==========================
 └── Business Unit
     └── Geography (e.g., England)
         ├── Environment (e.g., Production)
@@ -487,73 +487,254 @@ Azure Governance Hierarchy
 
 ## Describe Azure storage services 
 Compare Azure Storage services 
--
+===============================
+https://learn.microsoft.com/en-us/azure/architecture/guide/technology-choices/storage-options
+
+Azure Storage is a managed service for providing cloud storage.
+Storage in Azure is highly available, secure, durable, scalable, and redundant.
+
+🧱 Core Storage Services
+These are the foundational storage types in Azure:
+Azure Blob Storage
+------------------
+An object storage solution for the cloud.  
+Optimized for storing massive amounts of unstructured data.
+
+Use Cases:
+    - Serving images or documents directly to a browser.
+    - Storing files for distributed access.
+    - Streaming video and audio.
+    - Writing to log files.
+    - Storing data for backup and restore, disaster recovery, and archiving.
+    - Storing data for analysis by an on-premises or Azure-hosted service.
+
+
+Azure Files
+-----------
+Azure Files provides fully managed, native SMB (Server Message Block) and NFS (Network File System) file shares, without the need to run a virtual machine.
+You can mount an Azure file share as a network drive to any Azure virtual machine or on-premises computer.
+
+Azure disk storage
+------------------
+    Azure disk storage offers persistent, high-performance block storage to power Azure Virtual Machines.
+    Offer the industry's only single-instance, service-level agreement (SLA) for virtual machines that use Azure Premium SSD or Azure Ultra Disk Storage.
+    Azure manages disks as a top-level resource.
+
+    Properties of Azure Disks:
+        - Highly durable
+        - Secure
+        - high availability
+            > Provides availability sets and availability zones for your Azure Virtual Machines fault domains.
+
+    Azure Resource Manager (ARM) capabilities are provided by default, including:
+        - Azure Role-Based Access Control (RBAC): Assigns fine-grained permissions to users, groups, and applications for managing resources securely.
+        - Policies: Enforces rules and compliance standards across your Azure environment.
+        - Tagging: Adds metadata labels to resources for better organization, cost tracking, and automation.
+
+Data Lake Storage Gen2
+----------------------
+Data Lake Storage Gen2 is Blob Storage with a hierarchical file system.
+
+This hierarchical structure enables:
+    - Efficient file operations (like rename and delete)
+    - Directory-level access control
+    - Optimized performance for big data analytics
+
+Includes:
+    - Low-cost tiered storage
+    - High availability
+    - Strong consistency
+    - Disaster recovery capabilities
+
+Use Cases:
+    - Big data analytics with Hadoop/Spark
+
+
+🔄 **Integration & Sync Tools**
+These services extend or connect core storage:
+
+Azure File Sync
+---------------
+For centralizing file shares in Azure Files.
+Azure File Sync offers the flexibility, performance, and compatibility of an on-premises file server.
+
+Works With:
+    - Azure Files
+
+Azure Data Box
+--------------
+A solution that allows for offline, bulk data transfer in and out of Azure using a physical storage appliance.
+It's used when network-based data transfer is constrained by:
+    - Time
+    - Network availability
+    - Cost
+
+Works With:
+    - Blob
+    - Files
+    - Disks
+
+Data Box Gateway
+----------------
+A storage solution that enables you to seamlessly send data to Azure.
+It's a virtual device based on a virtual machine provisioned in your virtualized environment/hypervisor.
+The virtual device is on-premises and you write data to it by using the NFS and SMB protocols.
+The device then transfers your data to:
+    - Azure block blobs
+    - Page blobs
+    - Azure Files.
+
+🧰 **Advanced & Specialized Storage**
+These are optimized for performance, container workloads, or HPC (High-Performance Computing):
+
+Azure NetApp Files
+------------------
+A file storage service that's:
+    - enterprise-class
+    - high-performance
+
+Supports any workload type and is highly available by default.
+You can select service and performance levels and set up snapshots through the service.
+
+Use Cases:
+    - SAP
+    - Oracle
+    - HPC
+
+Azure Managed Lustre
+--------------------
+A high-performance distributed parallel file system solution.
+ideal for HPC workloads that require high throughput and low latency.
+Use Cases:
+    - AI/ML
+    - genomics
+
+Azure Container Storage
+-----------------------
+A volume management + deployment + orchestration service that is:
+    - Fully managed
+    - Cloud-based
+    - Built natively for containers.
+    
+It integrates with Kubernetes
+    - Allows you to dynamically + automatically provision persistent volumes to store data for stateful applications running on Kubernetes clusters.
+
+🧳 Edge & Hybrid Solutions
+These bring Azure Storage closer to your location:
+
+Azure Stack Edge
+----------------
+An on-prem network device that moves data into and out of Azure.
+Has AI-enabled edge compute to pre-process data during upload.
+
+(Data Box Gateway is a virtual version of the device but with the same data transfer capabilities)
+
+Use Cases:
+    - Local inference
+    - data preprocessing
+
+
 
 Describe storage tiers 
--
+=======================
+To manage costs for expanding storage needs, it can be helpful to organize data based on access frequency and retention time.
+Different access tiers exist so blob data can be stored cost-effectively based on its usage.
+
+Azure Storage access tiers:
+    1. Hot tier
+        - Online
+        - Optimized for storing data with high access/modification frequency
+        - Highest storage costs
+        - Lowest access costs
+    2. Cool tier
+        - Online
+        - Optimized for storing data with low access/modification frequency
+        - Data should be stored for a minimum of 30 days
+        - Compared to the hot tier:
+            - Lower storage costs
+            - Higher access costs
+    3. Cold tier
+        - Online
+        - Storing data with:
+            - Low access/modification frequency
+            - Requires fast retrieval
+        - Should be stored for a minimum of 90 days
+        - Compared to the cool tier: 
+            - Lower storage costs
+            - Higher access costs
+    4. Archive tier
+        - Offline
+        - Optimized for storing data that:
+            - Low access frequency
+            - Latency requirements are relaxed (e.g., hours rather than seconds or minutes)
+        - Should be stored for a minimum of 180 days
+
+    Azure storage capacity limits are set at the account level, rather than according to access tier.
+    You can choose to maximize your capacity usage in one tier, or to distribute capacity across two or more tiers.
+
 Describe redundancy options 
--
+============================
 Describe storage account options and storage types 
--
+===================================================
 Identify options for moving files, including AzCopy, Azure Storage Explorer, and Azure File Sync 
--
+=================================================================================================
 Describe migration options, including Azure Migrate and Azure Data Box 
--
+=======================================================================
 
 ## Describe Azure identity, access, and security 
 Describe directory services in Azure, including Microsoft Entra ID and Microsoft Entra Domain Services 
--
+=======================================================================================================
 Describe authentication methods in Azure, including single sign-on (SSO), multi-factor authentication (MFA), and passwordless 
--
+==============================================================================================================================
 Describe external identities in Azure, including business-to-business (B2B) and business-to-customer (B2C) 
--
+===========================================================================================================
 Describe Microsoft Entra Conditional Access 
--
+============================================
 Describe Azure role-based access control (RBAC) 
--
+================================================
 Describe the concept of Zero Trust 
--
+===================================
 Describe the purpose of the defense-in-depth model 
--
+===================================================
 Describe the purpose of Microsoft Defender for Cloud 
--
+=====================================================
 
 # Describe Azure management and governance (30–35%) 
 ## Describe cost management in Azure 
 Describe factors that can affect costs in Azure 
--
+================================================
 Compare the pricing calculator and the Total Cost of Ownership (TCO) Calculator 
--
+================================================================================
 Describe cost management capabilities in Azure 
--
+===============================================
 Describe the purpose of tags 
--
+=============================
 
 ## Describe features and tools in Azure for governance and compliance 
 Describe the purpose of Microsoft Purview in Azure 
--
+===================================================
 Describe the purpose of Azure Policy 
--
+=====================================
 Describe the purpose of resource locks 
--
+=======================================
 
 ## Describe features and tools for managing and deploying Azure resources 
 Describe the Azure portal 
--
+==========================
 Describe Azure Cloud Shell, including Azure Command-Line Interface (CLI) and Azure PowerShell 
--
+==============================================================================================
 Describe the purpose of Azure Arc 
--
+==================================
 Describe infrastructure as code (IaC) 
--
+======================================
 Describe Azure Resource Manager (ARM) and ARM templates 
--
+========================================================
 
 ## Describe monitoring tools in Azure 
 Describe the purpose of Azure Advisor 
--
+======================================
 Describe Azure Service Health 
--
+==============================
 Describe Azure Monitor, including Log Analytics, Azure Monitor alerts, and Application Insights 
--
+================================================================================================
 
