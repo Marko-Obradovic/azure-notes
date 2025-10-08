@@ -553,6 +553,7 @@ Storage in Azure is highly available, secure, durable, scalable, and redundant.
 
 🧱 Core Storage Services
 These are the foundational storage types in Azure:
+
 Azure Blob Storage
 ------------------
 An object storage solution for the cloud.  
@@ -565,7 +566,6 @@ Use Cases:
     - Writing to log files.
     - Storing data for backup and restore, disaster recovery, and archiving.
     - Storing data for analysis by an on-premises or Azure-hosted service.
-
 
 Azure Files
 -----------
@@ -861,16 +861,162 @@ Ideal for mission-critical applications requiring maximum availability.
 
 Identify options for moving files, including AzCopy, Azure Storage Explorer, and Azure File Sync 
 =================================================================================================
+AzCopy
+------
+AzCopy is a command-line utility that you can use to copy files to or from a storage account.
+
+Azure Storage Explorer
+----------------------
+A desktop application that helps manage your Azure Blob Storage and Azure Data Lake storage.
+
+Azure File Sync
+---------------
+A service for centralizing an organization's file shares in Azure Files while keeping the flexibility, performance, and compatibility of a Windows file server.
+
+You can opt to keep a full copy of your data locally.
+OR
+You can transform Windows Server into a quick cache of an Azure file share
+You can use any protocol that's available on Windows Server to access your data locally, including:
+    - Server Message Block (SMB)
+    - Network File System (NFS)
+    - File Transfer Protocol over SSL/TLS (FTPS)
+
+You can have as many caches as you need across the world.
 
 
 Describe migration options, including Azure Migrate and Azure Data Box 
 =======================================================================
 
+Azure Migrate
+-------------
+Built for lifting and shifting workloads (e.g., SQL Server to an Azure Virtual Machine)
+Provides a centralized hub to start, execute, and track your migration process.
+
+Capabilities:
+    - Can see and assess your on-premises infrastructure.
+    - Can works across your entire data estate.
+    - Gives deployment recommendations for Azure SQL-based options.
+    - Offers target sizing guidance to help right-size your Azure resources.
+    - Provides monthly cost estimates.
+    - Provides insights before you move anything.
+
+Azure Data Box
+--------------
+Built for massive data transfers that are not feasable do over the internet.
+This is a physical device shipped to you by Microsoft.
+Ideal for:
+    - multi-terabyte datasets
+    - environments with limited connectivity.
+
+How it works:
+    1. You copy your data onto the device locally.
+    2. Microsoft then securely transfers the data to Azure on your behalf.
+
+Data Box supports:
+    - Bulk data migration
+    - Disaster recovery data import
+    - Offline transfers where privacy and bandwidth are concerns
+
+
 ## Describe Azure identity, access, and security 
 Describe directory services in Azure, including Microsoft Entra ID and Microsoft Entra Domain Services 
 =======================================================================================================
+Microsoft Entra ID
+------------------
+Microsoft's cloud-based identity and access management service.
+Can also help you maintain your on-premises Active Directory deployment.
+
+Responsibilities:
+- identity accounts - controlled by user
+- Global availability - controlled by Microsoft
+
+When you connect Active Directory with Microsoft Entra ID, Microsoft detects suspicious sign-in attempts.
+
+Use Cases:
+    - IT administrators: For controlling access to applications + resources based business requirements.
+    - App developers: To get a standards-based approach for adding functionality to applications that they build. E.g.:
+        - SSO (Single Sign on) functionality
+        - Enabling an app to work with a user's existing credentials.
+    - Users: Can manage their identities and take maintenance actions like self-service password reset.
+    - Online service subscribers: Authentication provided by Microsoft 365, Microsoft Office 365, Azure, etc is Microsoft Entra ID.
+
+Services provided by Microsoft Entra ID:
+
+**Authentication** 
+Includes:
+        - Verifying identity to access applications and resources
+        - Self-service password reset
+        - Multifactor authentication
+        - Custom list of banned passwords
+        - Smart lockout services.
+
+**Single sign-on**
+Enables you to remember only one username and one password to access multiple applications.
+A single identity is tied to a user, which simplifies the security model.
+As users change roles or leave an organization, access modifications are tied to that identity, which greatly reduces the effort needed to change or disable accounts.
+
+**Application management**
+You can manage your cloud and on-premises apps by using Microsoft Entra ID. Features like Application Proxy, SaaS apps, the My Apps portal, and single sign-on provide a better user experience.
+
+**Device management**
+Along with accounts for individual people, Microsoft Entra ID supports the registration of devices. Registration enables devices to be managed through tools like Microsoft Intune. It also allows for device-based Conditional Access policies to restrict access attempts to only those coming from known devices, regardless of the requesting user account.
+
+Microsoft Entra Connect
+-----------------------
+Microsoft Entra Connect connects Microsoft Entra ID with an on-premises AD.
+Capabilities:
+    - Synchronizes user identities between on-premises Active Directory and Microsoft Entra ID.
+    - Synchronizes changes between both identity systems, so you can use features like
+        - SSO
+        - Multifactor authentication
+        - Self-service password reset under both systems
+
+Microsoft Entra Domain Services
+-------------------------------
+A service that provides managed domain services such as:
+    - Domain join
+    - Group policy
+    - Lightweight directory access protocol (LDAP)
+    - Kerberos/NTLM authentication
+
+A Domain managed by Microsoft Entra Domain Services lets you run legacy applications in the cloud
+
+When you create a Microsoft Entra Domain Services managed domain, you define a unique namespace. This namespace is the domain name. Two Windows Server domain controllers are then deployed into your selected Azure region. This deployment of DCs is known as a replica set.
+
+Azure handles the management, configuration, and updates of these DCs as part of the managed domain.
+This includes:
+    - Backups
+    - Encryption at rest using Azure Disk Encryption
+
+A managed domain performs a one-way synchronization from Microsoft Entra ID ➜ Microsoft Entra Domain Services.
+Resources can be made directly in the managed domain, but aren't synchronized back to Microsoft Entra ID.
+In a hybrid environment with an on-premises AD DS environment, Microsoft Entra Connect synchronizes identity information with Microsoft Entra ID, which is then synchronized to the managed domain.
+
+Diagram of Microsoft Entra Connect Sync synchronizing information back to the Microsoft Entra tenant from on-premises AD.
+```
+
+
+                        Automatic Background
+                        Sync to your managed
+                        domain
+┌───────────────────┐                           Microsoft       
+│  Virtual Network  │   <────────────────────── Entra ID   <────────────────> On-prem AD
+└───────────────────┘    - Sync Users           Tenant      - Sync Users
+    Managed Domain       - Groups                           - Groups     
+                         - Passwords                        - Passwords  
+                         - SIDs to ID                       - SIDs to ID 
+                                                    
+```
+
+Applications, services, and VMs in Azure connected to a managed domain can use Microsoft Entra Domain Services features such as:
+    - Domain join
+    - Group policy
+    - LDAP
+    - Kerberos/NTLM authentication
+
 Describe authentication methods in Azure, including single sign-on (SSO), multi-factor authentication (MFA), and passwordless 
 ==============================================================================================================================
+
 Describe external identities in Azure, including business-to-business (B2B) and business-to-customer (B2C) 
 ===========================================================================================================
 Describe Microsoft Entra Conditional Access 
