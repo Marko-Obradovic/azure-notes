@@ -76,8 +76,7 @@ A computing environment that uses both public and private clouds in an inter-con
 Use case:
 - Can be used to allow a private cloud to scale for increased, temporary demand by deploying public cloud resources.
 - Can be used for an extra layer of security.
->> E.g. Keeping some services on public cloud and others on private cloud infrastructure.
-
+   > E.g. Keeping some services on public cloud and others on private cloud infrastructure.
 
 **Multi-Cloud (New)**
 
@@ -143,7 +142,7 @@ Suitable for:
 Unused computing power at a discount.
 - Spot instances can be interrupted at short notice. 
 - To combat this, you can use Virtual Machine Scale Sets (VMSS). They let you run a group of identical VMs that scale automatically.
->> The evicted VMs can be replaced automatically, creating a more stable environment for your app.
+    > The evicted VMs can be replaced automatically, creating a more stable environment for your app.
 
 Benefits:
 - The discount can reach up to 90% compared to Pay as you go 
@@ -1098,6 +1097,72 @@ FIDO2 is the latest standard that incorporates the web authentication (WebAuthn)
     With a hardware device that handles the authentication, the security of an account is increased as there's no password that could be exposed or guessed.
 
 ### Describe external identities in Azure, including business-to-business (B2B) and business-to-customer (B2C) 
+An external identity is a person, device, service, etc. outside your organization.
+
+Microsoft Entra External ID refers to all the ways you can securely interact with users outside of your organization.
+
+Examples:
+- For collaborations with partners, distributors, suppliers, or vendors, you can share your resources and define how your internal users can access external organizations.
+- If you're a developer creating consumer-facing apps, you can manage your customers' identity experiences.
+
+With External Identities, the external user’s identity provider manages their identity, and you manage access to your apps with Microsoft Entra ID/Azure AD B2C to keep your resources protected.
+
+Diagram showing B2B collaborators accessing your tenant and B2C collaborators accessing the AD B2C tenant.
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│             External Identity Integration in Azure          │
+└─────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────┐
+│       B2B Collaboration     │
+├─────────────────────────────┤
+│ Partners, Vendors, etc.     │
+└────────────┬────────────────┘
+             │
+┌────────────┴────────────────────────┐
+│ Invite or Self-Service Sign-Up      │
+└────────────┬────────────────────────┘
+             │
+┌────────────┴────────────────┐
+│ Microsoft Entra External ID │
+└────────────┬────────────────┘
+             │
+┌────────────┴─────────────┐
+│       Your Tenant        │
+│   (Azure Services)       │
+└──────────────────────────┘
+
+─────────────────────────────────────────────────────────────
+
+┌─────────────────────────────┐
+│         Azure AD B2C        │
+├─────────────────────────────┤
+│       App Consumers         │
+└────────────┬────────────────┘
+             │
+┌────────────┴────────────────────────┐
+│   User Flows / Custom Policies      │
+└────────────┬────────────────────────┘
+             │
+┌────────────┴─────────────┐
+│     Azure AD B2C Tenant  │
+│     (Azure Services)     │
+└──────────────────────────┘
+
+
+```
+
+The following capabilities make up External Identities:
+
+Business to business (B2B) collaboration - Collaborate with external users by letting them use their preferred identity to sign-in to your Microsoft applications or other enterprise applications (SaaS apps, custom-developed apps, etc.). B2B collaboration users are represented in your directory, typically as guest users.
+B2B direct connect - Establish a mutual, two-way trust with another Microsoft Entra organization for seamless collaboration. B2B direct connect currently supports Teams shared channels, enabling external users to access your resources from within their home instances of Teams. B2B direct connect users aren't represented in your directory, but they're visible from within the Teams shared channel and can be monitored in Teams admin center reports.
+Microsoft Azure Active Directory business to customer (B2C) - Publish modern SaaS apps or custom-developed apps (excluding Microsoft apps) to consumers and customers, while using Azure AD B2C for identity and access management.
+Depending on how you want to interact with external organizations and the types of resources you need to share, you can use a combination of these capabilities.
+
+With Microsoft Entra ID, you can easily enable collaboration across organizational boundaries by using the Microsoft Entra B2B feature. Guest users from other tenants can be invited by administrators or by other users. This capability also applies to social identities such as Microsoft accounts.
+
+You also can easily ensure that guest users have appropriate access. You can ask the guests themselves or a decision maker to participate in an access review and recertify (or attest) to the guests' access. The reviewers can give their input on each user's need for continued access, based on suggestions from Microsoft Entra ID. When an access review is finished, you can then make changes and remove access for guests who no longer need it.
 ### Describe Microsoft Entra Conditional Access 
 ### Describe Azure role-based access control (RBAC) 
 ### Describe the concept of Zero Trust 
