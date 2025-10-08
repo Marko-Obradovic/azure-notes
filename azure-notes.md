@@ -1149,16 +1149,25 @@ Diagram showing B2B collaborators accessing your tenant and B2C collaborators ac
 │     Azure AD B2C Tenant  │
 │     (Azure Services)     │
 └──────────────────────────┘
-
-
 ```
 
 The following capabilities make up External Identities:
+1. Business to business (B2B) collaboration
 
-Business to business (B2B) collaboration - Collaborate with external users by letting them use their preferred identity to sign-in to your Microsoft applications or other enterprise applications (SaaS apps, custom-developed apps, etc.). B2B collaboration users are represented in your directory, typically as guest users.
-B2B direct connect - Establish a mutual, two-way trust with another Microsoft Entra organization for seamless collaboration. B2B direct connect currently supports Teams shared channels, enabling external users to access your resources from within their home instances of Teams. B2B direct connect users aren't represented in your directory, but they're visible from within the Teams shared channel and can be monitored in Teams admin center reports.
-Microsoft Azure Active Directory business to customer (B2C) - Publish modern SaaS apps or custom-developed apps (excluding Microsoft apps) to consumers and customers, while using Azure AD B2C for identity and access management.
+    Letting external users use their preferred identity to sign-in to your Microsoft apps as guests.
+
+2. B2B direct connect
+
+    A mutual, two-way trust with another Microsoft Entra organization for seamless collaboration.
+    - Supports Teams shared channels (external users can access your resources from their home instances of Teams)
+    - B2B direct connect users aren't represented in your directory, only from the Teams shared channel.
+
+3. Microsoft Azure Active Directory business to customer (B2C)
+
+    Publish modern SaaS apps or custom-developed apps (excluding Microsoft apps) to consumers and customers, while using Azure AD B2C for identity and access management.
+
 Depending on how you want to interact with external organizations and the types of resources you need to share, you can use a combination of these capabilities.
+
 
 With Microsoft Entra ID, you can easily enable collaboration across organizational boundaries by using the Microsoft Entra B2B feature. Guest users from other tenants can be invited by administrators or by other users. This capability also applies to social identities such as Microsoft accounts.
 
