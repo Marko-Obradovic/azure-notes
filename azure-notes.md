@@ -1224,37 +1224,62 @@ When individuals or groups get assighed to 1+ roles, they receive all the associ
 4. The new engineer automatically inherits the same access as the other engineers.
 5. If an additional resource is added within the same scope, everyone in the group will automatically have the permissions for the new resource.
 
-How is role-based access control applied to resources?
-Role-based access control is applied to a scope, which is a resource or set of resources that this access applies to.
+Role-based access control is applied to a scope, which is a resource/set of resources that this access applies to.
 
-The following diagram shows the relationship between roles and scopes. A management group, subscription, or resource group might be given the role of owner, so they have increased control and authority. An observer, who isn't expected to make any updates, might be given a role of Reader for the same scope, enabling them to review or observe the management group, subscription, or resource group.
+The following diagram shows the relationship between roles and scopes: 
 
+![A diagram showing scopes and roles.][role-based-access-scope]
 
-![A diagram showing scopes and roles. Role and scope combinations map to a specific kind of user or account, such as an observer or an admin.][image]
+[role-based-access-scope]: https://github.com/Marko-Obradovic/azure-notes/blob/main/images/role-based-access-scope.png
 
-[image]: https://learn.microsoft.com/en-us/training/wwl-azure/describe-azure-identity-access-security/media/role-based-access-scope-4b12a8f3-7f40fc55.png
-aaaaaaaaaaaaaaaaaaaaaaaaaaa
+Azure RBAC is hierarchical — permissions granted at a parent scope automatically apply to all child scopes:
 
+```
+Azure RBAC Hierarchy
+====================
 
-Scopes include:
+Management Group (Parent Scope)
+│
+├── Owner Role → Full control of all child scopes
+│   │
+│   ├── Subscription A
+│   │   ├── Resource Group 1
+│   │   │   ├── Resource A
+│   │   │   └── Resource B
+│   │   └── Resource Group 2
+│   │       └── Resource C
+│   │
+│   └── Subscription B
+│       └── (All resources within)
+│
+└── Reader Role (assigned at Subscription scope)
+    │
+    └── Members can *view*:
+        ├── All Resource Groups
+        │   └── Their Resources
+        └── But cannot modify them
 
-A management group (a collection of multiple subscriptions).
-A single subscription.
-A resource group.
-A single resource.
-Observers, users managing resources, admins, and automated processes illustrate the kinds of users or accounts that would typically be assigned each of the various roles.
+```
 
-Azure RBAC is hierarchical, in that when you grant access at a parent scope, those permissions are inherited by all child scopes. For example:
+Azure RBAC is enforced on any action initiated against an Azure resource that passes through Azure Resource Manager.
+> Resource Manager is a management service that provides a way to organize and secure your cloud resources.
 
-When you assign the Owner role to a user at the management group scope, that user can manage everything in all subscriptions within the management group.
-When you assign the Reader role to a group at the subscription scope, the members of that group can view every resource group and resource within the subscription.
-How is Azure RBAC enforced?
-Azure RBAC is enforced on any action that's initiated against an Azure resource that passes through Azure Resource Manager. Resource Manager is a management service that provides a way to organize and secure your cloud resources.
+Resource Manager can be accessed from:
+- The Azure portal
+- Azure Cloud Shell
+- Azure PowerShell
+- Azure CLI
 
-You typically access Resource Manager from the Azure portal, Azure Cloud Shell, Azure PowerShell, and the Azure CLI. Azure RBAC doesn't enforce access permissions at the application or data level. Application security must be handled by your application.
+Azure RBAC doesn't enforce access permissions at the application/data level. Application security must be handled by your application.
 
-Azure RBAC uses an allow model. When you're assigned a role, Azure RBAC allows you to perform actions within the scope of that role. If one role assignment grants you read permissions to a resource group and a different role assignment grants you write permissions to the same resource group, you have both read and write permissions on that resource group.
+Azure RBAC uses an allow model. When you're assigned a role, Azure RBAC allows you to perform actions within that role's scope. If a role assignment grants you READ permissions to a resource group and another grants you WRITE permissions to it, you have both read and write permissions on that resource group.
+
 ### Describe the concept of Zero Trust 
+
+![A diagram showing scopes and roles.][zero-trust]
+
+[zero-trust]: https://github.com/Marko-Obradovic/azure-notes/blob/main/images/zero-trust.png
+
 ### Describe the purpose of the defense-in-depth model 
 ### Describe the purpose of Microsoft Defender for Cloud 
 
