@@ -1228,7 +1228,7 @@ Role-based access control is applied to a scope, which is a resource/set of reso
 
 The following diagram shows the relationship between roles and scopes: 
 
-![A diagram showing scopes and roles.][role-based-access-scope]
+![Role Based Access Scope Diagram][role-based-access-scope]
 
 [role-based-access-scope]: https://github.com/Marko-Obradovic/azure-notes/blob/main/images/role-based-access-scope.png
 
@@ -1275,12 +1275,132 @@ Azure RBAC doesn't enforce access permissions at the application/data level. App
 Azure RBAC uses an allow model. When you're assigned a role, Azure RBAC allows you to perform actions within that role's scope. If a role assignment grants you READ permissions to a resource group and another grants you WRITE permissions to it, you have both read and write permissions on that resource group.
 
 ### Describe the concept of Zero Trust 
+Zero Trust starts with the idea that your systems might already be compromised. Because of that, it treats every access request as untrusted and requires verification each time.
 
-![A diagram showing scopes and roles.][zero-trust]
+**Context:**
+> Traditionally, corporate networks were restricted, protected, and generally assumed safe. Only managed computers could join the network, VPN access was tightly controlled, and personal devices were frequently restricted or blocked.
+
+> Instead of assuming that a device is safe because it’s within the corporate network, it requires everyone to authenticate. Then grants access based on authentication rather than location.
+
+Zero Trust Guiding Principles:
+
+- Verify explicitly - Always authenticate and authorize based on all available data points.
+- Use least privilege access:
+    - Limit user access with Just-In-Time/Just-Enough-Access (JIT/JEA)
+    - Risk-based adaptive policies
+    - Data protection
+- Assume breach - Minimize blast radius and segment access.
+- Verify end-to-end encryption.
+- Use analytics to get visibility, drive threat detection, and improve defenses.
+
+
+![Zero Trust Diagram][zero-trust]
 
 [zero-trust]: https://github.com/Marko-Obradovic/azure-notes/blob/main/images/zero-trust.png
 
 ### Describe the purpose of the defense-in-depth model 
+
+Objective of defense-in-depth: Protect information + prevent it from being stolen by unauthorized users.
+
+A defense-in-depth strategy uses a series of mechanisms to slow the advance of an attack that aims at acquiring unauthorized access to data.
+
+#### Layers of defense-in-depth
+You can visualize defense-in-depth as a set of layers, with the data to be secured at the center and all the other layers functioning to protect that central data layer.
+
+```
+Physical Security/
+└── Identity & Access/
+    └── Perimeter/
+        └── Network/
+            └── Compute/
+                └── Application/
+                    └── Data
+```
+
+
+Each layer provides protection so that if one layer is breached, a subsequent layer is already in place to prevent further exposure.
+
+It slows down an attack and provides alert information that security teams can act upon, either automatically or manually.
+
+High Level Overview of each layer's role:
+1. Physical security layer: Protects computing hardware in the datacenter.
+2. Identity and access layer: Controls access to infrastructure and change control.
+3. Perimeter layer: Protects against DDoS Attacks.
+4. Network layer: Limits communication between resources through segmentation and access controls.
+5. Compute layer: Secures access to virtual machines.
+6. Application layer: Ensures application security.
+7. Data layer: Controls business and customer data access.
+
+These layers provide a guideline for you to help make security configuration decisions in all of the layers of your applications.
+
+More detailed overview of each layer:
+
+#### Physical security
+- Physically securing access to buildings
+- Controlling access to computing hardware within the datacenter are the first line of defense.
+
+#### Identity and access
+
+At this layer, it's important to:
+
+- Secure identities:
+    - Control access to infrastructure and change control.
+    - Access is granted only to what's needed
+- Use single sign-on (SSO) and multifactor authentication.
+- Audit events and changes: Sign-in events/changes are logged 
+
+#### Perimeter
+Protects from network-based attacks against your resources
+- Identifies these attacks
+- Eliminates their impact
+- Alerts when they happen
+
+At this layer, it's important to:
+- Use DDoS protection to filter large-scale attacks before they can affect the availability of a system for users.
+- Use perimeter firewalls to identify and alert on malicious attacks against your network.
+
+#### Network
+Limits network connectivity across all resources to allow only what's required.
+By limiting this communication, you reduce the risk of an attack spreading to other systems in your network.
+
+At this layer, it's important to:
+
+- Limit communication between resources.
+- Deny by default.
+- Restrict inbound internet access and limit outbound access where appropriate.
+- Implement secure connectivity to on-premises networks.
+
+#### Compute
+At this layer, it's important to:
+
+- Secure access to virtual machines.
+- Implement endpoint protection on devices and keep systems patched and current.
+
+#### Application
+Helps reduce the number of vulnerabilities introduced in code.
+Every development team should ensure that its applications are secure by default.
+
+At this layer, it's important to:
+
+- Ensure that applications are secure + vulnerability free.
+- Store sensitive application secrets in a secure storage medium.
+- Make security a design requirement for all application development.
+
+#### Data
+Those who store and control access to data are responsible for ensuring that it's properly secured.
+
+Often, regulatory requirements dictate controls and processes that must be in place to ensure:
+- Confidentiality
+- Integrity
+- Availability of the data
+
+In almost all cases, attackers are after data:
+
+- Stored in a database.
+- Stored on disk inside virtual machines.
+- Stored in software as a service (SaaS) applications, such as Office 365.
+- Managed through cloud storage.
+
 ### Describe the purpose of Microsoft Defender for Cloud 
 
 # Describe Azure management and governance (30–35%) 
