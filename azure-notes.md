@@ -1455,32 +1455,42 @@ For example, if you've connected an Amazon Web Services (AWS) account to an Azur
 
 #### Asses, Secure, Defend
 - Continuously assess
-    - Know your security posture
-    - Identify and track vulnerabilities
+    - Aim:
+        - Know your security posture
+        - Identify and track vulnerabilities
+    - Defender for Cloud provides vulnerability assessments for virtual machines, container registries, and SQL servers.
+    - __Microsoft Defender for servers__ includes automatic, native integration with __Microsoft Defender for Endpoint__.
+    - These assessment tools provide regular, detailed vulnerability scans covering:
+        - Compute
+        - Data
+        - Infrastructure
+    - They can be found in the Microsoft Defender Vulnerability Management Dashboard
 - Secure
-    - Harden resources and services with Azure Security Benchmark
-- Defend – Detect and resolve threats to resources, workloads, and services.
-Diagram reinforcing assess, secure, and defend.
-
-Continuously assess
-Defender for cloud helps you continuously assess your environment. Defender for Cloud includes vulnerability assessment solutions for your virtual machines, container registries, and SQL servers.
-
-Microsoft Defender for servers includes automatic, native integration with Microsoft Defender for Endpoint. With this integration enabled, you'll have access to the vulnerability findings from Microsoft threat and vulnerability management.
-
-Between these assessment tools you’ll have regular, detailed vulnerability scans that cover your compute, data, and infrastructure. You can review and respond to the results of these scans all from within Defender for Cloud.
-
-Secure
-From authentication methods to access control to the concept of Zero Trust, security in the cloud is an essential basic that must be done right. In order to be secure in the cloud, you have to ensure your workloads are secure. To secure your workloads, you need security policies in place that are tailored to your environment and situation. Because policies in Defender for Cloud are built on top of Azure Policy controls, you're getting the full range and flexibility of a world-class policy solution. In Defender for Cloud, you can set your policies to run on management groups, across subscriptions, and even for a whole tenant.
-
-One of the benefits of moving to the cloud is the ability to grow and scale as you need, adding new services and resources as necessary. Defender for Cloud is constantly monitoring for new resources being deployed across your workloads. Defender for Cloud assesses if new resources are configured according to security best practices. If not, they're flagged and you get a prioritized list of recommendations for what you need to fix. Recommendations help you reduce the attack surface across each of your resources.
-
-The list of recommendations is enabled and supported by the Azure Security Benchmark. This Microsoft-authored, Azure-specific, benchmark provides a set of guidelines for security and compliance best practices based on common compliance frameworks.
+    - Aim:
+        - Harden resources and services with Azure Security Benchmark
+    - You must ensure workloads are secure for cloud security.
+    - To do this, security policies tailored to your environment and situation must be in place.
+    - Policies can run:
+        - On management groups
+        - Across subscriptions
+        - For a whole tenant
+    - Defender for Cloud is constantly monitoring for newly deployed resources and assesses if they're configured according to security best practices. If not, they're flagged and a prioritized list of recommendations for what needs to be fixed is provided.
+    - Azure Security Benchmark is a set of guidelines for security and compliance best practices 
+        - Based on common compliance frameworks 
+        - Microsoft-authored, Azure-specific 
 
 In this way, Defender for Cloud enables you not just to set security policies, but to apply secure configuration standards across your resources.
 
 To help you understand how important each recommendation is to your overall security posture, Defender for Cloud groups the recommendations into security controls and adds a secure score value to each control. The secure score gives you an at-a-glance indicator of the health of your security posture, while the controls give you a working list of things to consider to improve your security score and your overall security posture.
 
-Screenshot showing the Microsoft Defender for Cloud secure score.
+
+![Microsoft Defender for Cloud Secure Score Diagram][microsoft-defender-for-cloud-secure-score-diagram]
+
+[microsoft-defender-for-cloud-secure-score-diagram]: https://github.com/Marko-Obradovic/azure-notes/blob/main/images/microsoft-defender-for-cloud-secure-score-diagram.png
+
+- Defend – Detect and resolve threats to resources, workloads, and services.
+Diagram reinforcing assess, secure, and defend.
+
 
 Defend
 The first two areas were focused on assessing, monitoring, and maintaining your environment. Defender for Cloud also helps you defend your environment by providing security alerts and advanced threat protection features.
