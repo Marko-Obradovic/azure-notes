@@ -185,6 +185,8 @@ An app being available regardless of disruptions
 
 When you're architecturing an app, you need to account for service availability guarantees (part of SLAs)
 
+_An SLA is an uptime or performance guarantee between you and your users._
+
 Benefits:
 - The higher your app's availability, the more time you save end-users in down-time. They can accomplish more.
 
@@ -1616,41 +1618,103 @@ Ways of seeing total cost:
 - Resource
 - Etc...
 
-Screenshot of initial view of cost analysis in the Azure portal.
+Cost analysis Dashboard in the Azure portal.
 
 ![Cost Analysis Dashboard][cost-analysis-dashboard]
 
 [cost-analysis-dashboard]: https://github.com/Marko-Obradovic/azure-notes/blob/main/images/cost-analysis-dashboard.png
 
-You use cost analysis to explore and analyze your organizational costs. You can view aggregated costs by organization to understand where costs are accrued and to identify spending trends. And you can see accumulated costs over time to estimate monthly, quarterly, or even yearly cost trends against a budget.
+You use cost analysis to explore and analyze your organizational costs.
 
-Cost alerts
-Cost alerts provide a single location to quickly check on all of the different alert types that may show up in the Cost Management service. The three types of alerts that may show up are:
+Cost alerts provide a single location to check all the different alert types that may show up in the Cost Management service. The three types of alerts that may show up are:
 
-Budget alerts
-Credit alerts
-Department spending quota alerts.
-Budget alerts
-Budget alerts notify you when spending, based on usage or cost, reaches or exceeds the amount defined in the alert condition of the budget. Cost Management budgets are created using the Azure portal or the Azure Consumption API.
+__1. Budget alerts__
 
-In the Azure portal, budgets are defined by cost. Budgets are defined by cost or by consumption usage when using the Azure Consumption API. Budget alerts support both cost-based and usage-based budgets. Budget alerts are generated automatically whenever the budget alert conditions are met. You can view all cost alerts in the Azure portal. Whenever an alert is generated, it appears in cost alerts. An alert email is also sent to the people in the alert recipients list of the budget.
+Notify you when spending reaches/exceeds the threshold set.
 
-Credit alerts
-Credit alerts notify you when your Azure credit monetary commitments are consumed. Monetary commitments are for organizations with Enterprise Agreements (EAs). Credit alerts are generated automatically at 90% and at 100% of your Azure credit balance. Whenever an alert is generated, it's reflected in cost alerts, and in the email sent to the account owners.
+Budget alerts support both cost-based and usage-based budgets
 
-Department spending quota alerts
-Department spending quota alerts notify you when department spending reaches a fixed threshold of the quota. Spending quotas are configured in the EA portal. Whenever a threshold is met, it generates an email to department owners, and appears in cost alerts. For example, 50 percent or 75 percent of the quota.
+| Type            | Tracks          | Example Limit  | Example Alert                      |
+| --------------- | --------------- | -------------- | ---------------------------------- |
+| **Cost-based**  | Money spent ($) | $500/month     | Spending forecasted to exceed $500 |
+| **Usage-based** | Resource use    | 1,000 GB/month | Usage reaches 900 GB               |
 
-Budgets
-A budget is where you set a spending limit for Azure. You can set budgets based on a subscription, resource group, service type, or other criteria. When you set a budget, you will also set a budget alert. When the budget hits the budget alert level, it will trigger a budget alert that shows up in the cost alerts area. If configured, budget alerts will also send an email notification that a budget alert threshold has been triggered.
+__2. Credit alerts__
 
-A more advanced use of budgets enables budget conditions to trigger automation that suspends or otherwise modifies resources once the trigger condition has occurred.
+Notifies you when your Azure credit monetary commitments are consumed.
 
+Monetary commitments are for organizations with Enterprise Agreements (EAs).
+
+Credit alerts are generated automatically at 90% and at 100% of your Azure credit balance.
+
+__3. Department spending quota alerts__
+
+Notifies you when department spending reaches a fixed threshold of the quota.
+
+Spending quotas are configured in the EA portal.
+
+__Budgets__
+
+A budget is where you set a spending limit for Azure. You can set budgets based on:
+- A subscription
+- A Resource group
+- A Service type
+- Etc...
+
+You set a budget and budget alert together. When the budget hits the budget alert level, a budget alert shows up in:
+- The cost alerts area
+- An email notification (If configured)
+
+You can also enable budget conditions to trigger automation that suspends/modifies resources.
 
 ### Describe the purpose of tags 
+Resource tags are way to organize resources aside from Subscriptions. Tags provide metadata about your resources. This metadata is useful for:
+- Resource management
+
+    Tags enable you to locate + act on resources associated with specific:
+    - Workloads
+    - Environments
+    - Business units
+    - Owners
+
+- Cost management and optimization
+
+    Tags enable you to group resources so that you can:
+    - Report on costs
+    - Allocate internal cost centers
+    - Track budgets
+    - Forecast estimated cost
+
+- Operations management
+
+    Tags enable you to group resources according to how critical their availability is to your business.
+
+    This grouping helps you formulate service-level agreements (SLAs)
+
+Security Tags enable you to classify data by its security level, such as public or confidential.
+Governance and regulatory compliance Tags enable you to identify resources that align with governance or regulatory compliance requirements, such as ISO 27001. Tags can also be part of your standards enforcement efforts. For example, you might require that all resources be tagged with an owner or department name.
+Workload optimization and automation Tags can help you visualize all of the resources that participate in complex deployments. For example, you might tag a resource with its associated workload or application name and use software such as Azure DevOps to perform automated tasks on those resources.
+How do I manage resource tags?
+You can add, modify, or delete resource tags through Windows PowerShell, the Azure CLI, Azure Resource Manager templates, the REST API, or the Azure portal.
+
+You can use Azure Policy to enforce tagging rules and conventions. For example, you can require that certain tags be added to new resources as they're provisioned. You can also define rules that reapply tags that have been removed. Resources don't inherit tags from subscriptions and resource groups, meaning that you can apply tags at one level and not have those tags automatically show up at a different level, allowing you to create custom tagging schemas that change depending on the level (resource, resource group, subscription, and so on).
+
+An example tagging structure
+A resource tag consists of a name and a value. You can assign one or more tags to each Azure resource.
+
+| Name        | Value                                                                                  |
+|--------------|----------------------------------------------------------------------------------------|
+| AppName      | The name of the application that the resource is part of.                             |
+| CostCenter   | The internal cost center code.                                                        |
+| Owner        | The name of the business owner who's responsible for the resource.                    |
+| Environment  | An environment name, such as "Prod," "Dev," or "Test."                                |
+| Impact       | How important the resource is to business operations, such as "Mission-critical," "High-impact," or "Low-impact." |
+
+Keep in mind that you don't need to enforce that a specific tag is present on all of your resources. For example, you might decide that only mission-critical resources have the Impact tag. All non-tagged resources would then not be considered as mission-critical.
 
 ## Describe features and tools in Azure for governance and compliance 
 ### Describe the purpose of Microsoft Purview in Azure 
+
 ### Describe the purpose of Azure Policy 
 ### Describe the purpose of resource locks 
 
