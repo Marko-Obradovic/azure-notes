@@ -1228,9 +1228,9 @@ Role-based access control is applied to a scope, which is a resource/set of reso
 
 The following diagram shows the relationship between roles and scopes: 
 
-![Role Based Access Scope Diagram][role-based-access-scope]
+![Role Based Access Scope Diagram][role-based-access-scope-diagram]
 
-[role-based-access-scope]: https://github.com/Marko-Obradovic/azure-notes/blob/main/images/role-based-access-scope.png
+[role-based-access-scope-diagram]: https://github.com/Marko-Obradovic/azure-notes/blob/main/images/role-based-access-scope-diagram.png
 
 Azure RBAC is hierarchical — permissions granted at a parent scope automatically apply to all child scopes:
 
@@ -1294,9 +1294,9 @@ Zero Trust Guiding Principles:
 - Use analytics to get visibility, drive threat detection, and improve defenses.
 
 
-![Zero Trust Diagram][zero-trust]
+![Zero Trust Diagram][zero-trust-diagram]
 
-[zero-trust]: https://github.com/Marko-Obradovic/azure-notes/blob/main/images/zero-trust.png
+[zero-trust-diagram]: https://github.com/Marko-Obradovic/azure-notes/blob/main/images/zero-trust.png
 
 ### Describe the purpose of the defense-in-depth model 
 
