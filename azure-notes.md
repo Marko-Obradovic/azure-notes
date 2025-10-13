@@ -1424,6 +1424,24 @@ Automatically monitors and protects Azure services without additional deployment
 On-premises/other cloud environments are not automatically protected. To monitor them, you need:
 - Log Analytics agent: Collects security and telemetry data.
 - Azure Arc: Extends Defender for Cloud’s protection to non-Azure machines.
+(Cloud security posture management (CSPM) features are extended to multicloud machines without needing agents)
+
+For example, if you've connected an Amazon Web Services (AWS) account to an Azure subscription:
+
+- Defender for Cloud's __CSPM features__ extend to your AWS resources.
+    - This is an agentless plan
+    - Assesses AWS resources'...
+        - ...security according to AWS-specific security recommendations + includes the results in the secure score
+        - ...compliance with built-in standards specific to AWS (AWS CIS, AWS PCI DSS, and AWS Foundational Security Best Practices).
+    - The asset inventory page allows management of AWS resources alongside Azure resources
+- __Microsoft Defender for Containers__ extends container threat detection + defenses to Amazon EKS Linux clusters.
+- __Microsoft Defender for Servers__ brings threat detection + defenses to your Windows and Linux EC2 instances.
+
+
+![Assess, Secure, Defend Diagram][assess-secure-defend-diagram]
+
+[assess-secure-defend-diagram]: https://github.com/Marko-Obradovic/azure-notes/blob/main/images/assess-secure-defend-diagram.png
+
 
 Helps you detect threats across:
 - Azure PaaS services – Detect threats for:
@@ -1441,20 +1459,6 @@ Helps you detect threats across:
     - Using the just-in-time VM access:
     > Secure temporary access policies on selected ports, only for authorized users with allowed source IP ranges/IPs
 
-Defend your hybrid resources
-In addition to defending your Azure environment, you can add Defender for Cloud capabilities to your hybrid cloud environment to protect your non-Azure servers. To help you focus on what matters the most, you'll get customized threat intelligence and prioritized alerts according to your specific environment.
-
-To extend protection to on-premises machines, deploy Azure Arc and enable Defender for Cloud's enhanced security features.
-
-Defend resources running on other clouds
-Defender for Cloud can also protect resources in other clouds (such as AWS and GCP).
-
-For example, if you've connected an Amazon Web Services (AWS) account to an Azure subscription, you can enable any of these protections:
-
-Defender for Cloud's CSPM features extend to your AWS resources. This agentless plan assesses your AWS resources according to AWS-specific security recommendations, and includes the results in the secure score. The resources will also be assessed for compliance with built-in standards specific to AWS (AWS CIS, AWS PCI DSS, and AWS Foundational Security Best Practices). Defender for Cloud's asset inventory page is a multicloud enabled feature helping you manage your AWS resources alongside your Azure resources.
-Microsoft Defender for Containers extends its container threat detection and advanced defenses to your Amazon EKS Linux clusters.
-Microsoft Defender for Servers brings threat detection and advanced defenses to your Windows and Linux EC2 instances.
-Assess, Secure, and Defend
 Defender for Cloud fills three vital needs as you manage the security of your resources and workloads in the cloud and on-premises:
 
 Continuously assess – Know your security posture. Identify and track vulnerabilities.
