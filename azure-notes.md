@@ -1483,7 +1483,6 @@ In this way, Defender for Cloud enables you not just to set security policies, b
 
 To help you understand how important each recommendation is to your overall security posture, Defender for Cloud groups the recommendations into security controls and adds a secure score value to each control. The secure score gives you an at-a-glance indicator of the health of your security posture, while the controls give you a working list of things to consider to improve your security score and your overall security posture.
 
-
 ![Microsoft Defender for Cloud Secure Score Diagram][microsoft-defender-for-cloud-secure-score-diagram]
 
 [microsoft-defender-for-cloud-secure-score-diagram]: https://github.com/Marko-Obradovic/azure-notes/blob/main/images/microsoft-defender-for-cloud-secure-score-diagram.png
