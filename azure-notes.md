@@ -1509,70 +1509,144 @@ Example Protection:
 # Describe Azure management and governance (30–35%) 
 ## Describe cost management in Azure 
 ### Describe factors that can affect costs in Azure 
-Factors that impact OpEx cost:
-- Resources:
-    - Resource type
-    - Resource settings
-    - Azure region
-> When you provision an Azure resource, Azure creates metered instances for that resource. The meters track the resources' usage and generate a usage record that is used to calculate your bill.
-
-Example:
-With a storage account, you specify a type such as blob, a performance tier, an access tier, redundancy settings, and a region. Creating the same storage account in different regions may show different costs and changing any of the settings may also impact the price.
-
-Screenshot of storage blob settings showing hot and cool access tiers.
-
-![Blob Storage][blob-storage]
-
-[blob-storage]: https://github.com/Marko-Obradovic/azure-notes/blob/main/images/blob-storage.png
-
-With a virtual machine (VM), you may have to consider licensing for the operating system or other software, the processor and number of cores for the VM, the attached storage, and the network interface. Just like with storage, provisioning the same virtual machine in different regions may result in different costs.
-
-
-Screenshot of Azure virtual machine settings showing the virtual machine size options.
-
+#### All factors:
+- Resources
 - Consumption
 - Maintenance
 - Geography
 - Subscription type
 - Azure Marketplace
 
+#### 1. Resources:
 
+- Resource type
+- Resource settings
+- Azure region
 
+When you provision an Azure resource, Azure creates metered instances for that resource. The meters track the resources' usage and generate a usage record that is used to calculate your bill.
 
-Consumption
-Pay-as-you-go has been a consistent theme throughout, and that’s the cloud payment model where you pay for the resources that you use during a billing cycle. If you use more compute this cycle, you pay more. If you use less in the current cycle, you pay less. It’s a straight forward pricing mechanism that allows for maximum flexibility.
+__Examples:__
 
-However, Azure also offers the ability to commit to using a set amount of cloud resources in advance and receiving discounts on those “reserved” resources. Many services, including databases, compute, and storage all provide the option to commit to a level of use and receive a discount, in some cases up to 72 percent.
+With a storage account, you specify:
+- A type such as blob
+- A performance tier
+- An access tier
+- Redundancy settings
+- A region
 
-When you reserve capacity, you’re committing to using and paying for a certain amount of Azure resources during a given period (typically one or three years). With the back-up of pay-as-you-go, if you see a sudden surge in demand that eclipses what you’ve pre-reserved, you just pay for the additional resources in excess of your reservation. This model allows you to recognize significant savings on reliable, consistent workloads while also having the flexibility to rapidly increase your cloud footprint as the need arises.
+![Blob Storage][blob-storage]
 
-Maintenance
-The flexibility of the cloud makes it possible to rapidly adjust resources based on demand. Using resource groups can help keep all of your resources organized. In order to control costs, it’s important to maintain your cloud environment. For example, every time you provision a VM, additional resources such as storage and networking are also provisioned. If you deprovision the VM, those additional resources may not deprovision at the same time, either intentionally or unintentionally. By keeping an eye on your resources and making sure you’re not keeping around resources that are no longer needed, you can help control cloud costs.
+[blob-storage]: https://github.com/Marko-Obradovic/azure-notes/blob/main/images/blob-storage.png
 
-Geography
-When you provision most resources in Azure, you need to define a region where the resource deploys. Azure infrastructure is distributed globally, which enables you to deploy your services centrally or closest to your customers, or something in between. With this global deployment comes global pricing differences. The cost of power, labor, taxes, and fees vary depending on the location. Due to these variations, Azure resources can differ in costs to deploy depending on the region.
+#### 2. Consumption
+Based on what cloud pricing model you choose, you will be charged differently.
+_See "Compare cloud pricing models"_ 
 
-Network traffic is also impacted based on geography. For example, it’s less expensive to move information within Europe than to move information from Europe to Asia or South America.
+#### 3. Maintenance
+Example:
+> When a VM is provisioned, additional resources like storage/networking are also provisioned. If you deprovision the VM, those additional resources may not deprovision at the same time. Keeping an eye on resources and making sure there are no resources you don't need helps control cloud costs.
 
-Network Traffic
+#### 4. Geography
+Pricing will vary based on which regions resources are provisioned in. This is because there are differences between regions in factors like:
+- Cost of power
+- Labor
+- Taxes
+- Fees
+
+Network traffic is also impacted based on geography. For example, it’s cheaper to move info within Europe than to from Europe to Asia.
+
 Billing zones are a factor in determining the cost of some Azure services.
 
-Bandwidth refers to data moving in and out of Azure datacenters. Some inbound data transfers (data going into Azure datacenters) are free. For outbound data transfers (data leaving Azure datacenters), data transfer pricing is based on zones.
+Bandwidth refers to data moving in and out of Azure datacenters.
 
-A zone is a geographical grouping of Azure regions for billing purposes. The bandwidth pricing page has additional information on pricing for data ingress, egress, and transfer.
+Some inbound data transfers (data going into Azure datacenters) are free.
 
-Subscription type
+For outbound data transfers (data leaving Azure datacenters), data transfer pricing is based on zones.
+
+A zone is a geographical grouping of Azure regions for billing purposes.
+
+#### 5. Subscription type
 Some Azure subscription types also include usage allowances, which affect costs.
 
-For example, an Azure free trial subscription provides access to a number of Azure products that are free for 12 months. It also includes credit to spend within your first 30 days of sign-up. You'll get access to more than 25 products that are always free (based on resource and region availability).
+Example:
 
-Azure Marketplace
-Azure Marketplace lets you purchase Azure-based solutions and services from third-party vendors. This could be a server with software preinstalled and configured, or managed network firewall appliances, or connectors to third-party backup services. When you purchase products through Azure Marketplace, you may pay for not only the Azure services that you’re using, but also the services or expertise of the third-party vendor. Billing structures are set by the vendor.
+> An Azure free trial subscription provides access to some Azure products free for 12 months. It also includes credit to spend within your first 30 days of sign-up.
 
-All solutions available in Azure Marketplace are certified and compliant with Azure policies and standards. The certification policies may vary based on the service or solution type and Azure service involved. Commercial marketplace certification policies has additional information on Azure Marketplace certifications.
+#### 6. Azure Marketplace
+[https://learn.microsoft.com/en-us/training/modules/describe-cost-management-azure/3-compare-pricing-total-cost-of-ownership-calculators]
+Azure Marketplace lets you purchase Azure-based solutions/services from third-party vendors.
+
+Examples:
+- A server with software preinstalled and configured
+- Managed network firewall appliances
+- Connectors to third-party backup services
+
+Everything on Azure Marketplace is certified and compliant with Azure policies and standards.
 
 ### Compare the pricing calculator and the Total Cost of Ownership (TCO) Calculator 
-### Describe cost management capabilities in Azure 
+_The Total Cost of Ownership (TCO) calculator has been retired._
+
+The pricing calculator provides an estimated cost for provisioning resources in Azure.
+
+Capabilities:
+- Estimate cost for individual resources
+- Builds out a solution, uses an example scenario to see an estimate of the Azure spend.
+
+With the pricing calculator, you can estimate the cost of:
+- Compute
+- Storage
+- Associated network costs
+- Storage options like:
+    - Storage type
+    - Access tier
+    - Redundancy
+
+Exercise: https://learn.microsoft.com/en-us/training/modules/describe-cost-management-azure/4-exercise-estimate-workload-costs-use-pricing-calculator
+
+### Cost Management 
+Provides the ability to:
+- Check Azure resource costs
+- Create alerts based on resource spend
+- Create budgets that can be used to automate management of resources
+
+Cost analysis is a subset of Cost Management and provides a quick visual for your Azure costs.
+Ways of seeing total cost:
+- By billing cycle
+- Region
+- Resource
+- Etc...
+
+Screenshot of initial view of cost analysis in the Azure portal.
+
+![Cost Analysis Dashboard][cost-analysis-dashboard]
+
+[cost-analysis-dashboard]: https://github.com/Marko-Obradovic/azure-notes/blob/main/images/cost-analysis-dashboard.png
+
+You use cost analysis to explore and analyze your organizational costs. You can view aggregated costs by organization to understand where costs are accrued and to identify spending trends. And you can see accumulated costs over time to estimate monthly, quarterly, or even yearly cost trends against a budget.
+
+Cost alerts
+Cost alerts provide a single location to quickly check on all of the different alert types that may show up in the Cost Management service. The three types of alerts that may show up are:
+
+Budget alerts
+Credit alerts
+Department spending quota alerts.
+Budget alerts
+Budget alerts notify you when spending, based on usage or cost, reaches or exceeds the amount defined in the alert condition of the budget. Cost Management budgets are created using the Azure portal or the Azure Consumption API.
+
+In the Azure portal, budgets are defined by cost. Budgets are defined by cost or by consumption usage when using the Azure Consumption API. Budget alerts support both cost-based and usage-based budgets. Budget alerts are generated automatically whenever the budget alert conditions are met. You can view all cost alerts in the Azure portal. Whenever an alert is generated, it appears in cost alerts. An alert email is also sent to the people in the alert recipients list of the budget.
+
+Credit alerts
+Credit alerts notify you when your Azure credit monetary commitments are consumed. Monetary commitments are for organizations with Enterprise Agreements (EAs). Credit alerts are generated automatically at 90% and at 100% of your Azure credit balance. Whenever an alert is generated, it's reflected in cost alerts, and in the email sent to the account owners.
+
+Department spending quota alerts
+Department spending quota alerts notify you when department spending reaches a fixed threshold of the quota. Spending quotas are configured in the EA portal. Whenever a threshold is met, it generates an email to department owners, and appears in cost alerts. For example, 50 percent or 75 percent of the quota.
+
+Budgets
+A budget is where you set a spending limit for Azure. You can set budgets based on a subscription, resource group, service type, or other criteria. When you set a budget, you will also set a budget alert. When the budget hits the budget alert level, it will trigger a budget alert that shows up in the cost alerts area. If configured, budget alerts will also send an email notification that a budget alert threshold has been triggered.
+
+A more advanced use of budgets enables budget conditions to trigger automation that suspends or otherwise modifies resources once the trigger condition has occurred.
+
+
 ### Describe the purpose of tags 
 
 ## Describe features and tools in Azure for governance and compliance 
