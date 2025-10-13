@@ -1419,6 +1419,22 @@ Provides:
     - Cyber attacks protection
     - Provide streamlined security management
 
+Helps you detect threats across:
+- Azure PaaS services – Detect threats for:
+    - Azure App Service
+    - Azure SQL
+    - Azure Storage Account
+    - etc.
+    Anomaly detection can be performed on Azure activity logs via Microsoft Defender for Cloud Apps.
+- Azure data services – Can:
+    - Classify data in Azure SQL
+    - Create assessments for potential vulnerabilities across Azure SQL and Storage services
+    - Recommend how to mitigate them
+- Networks – Limits exposure to brute force attacks.
+    - Reduce access to virtual machine ports. This prevents unwanted access.
+    - Using the just-in-time VM access:
+    > Secure temporary access policies on selected ports, only for authorized users with allowed source IP ranges/IPs
+
 Automatically monitors and protects Azure services without additional deployment.
 
 On-premises/other cloud environments are not automatically protected. To monitor them, you need:
@@ -1437,33 +1453,13 @@ For example, if you've connected an Amazon Web Services (AWS) account to an Azur
 - __Microsoft Defender for Containers__ extends container threat detection + defenses to Amazon EKS Linux clusters.
 - __Microsoft Defender for Servers__ brings threat detection + defenses to your Windows and Linux EC2 instances.
 
-
-![Assess, Secure, Defend Diagram][assess-secure-defend-diagram]
-
-[assess-secure-defend-diagram]: https://github.com/Marko-Obradovic/azure-notes/blob/main/images/assess-secure-defend-diagram.png
-
-
-Helps you detect threats across:
-- Azure PaaS services – Detect threats for:
-    - Azure App Service
-    - Azure SQL
-    - Azure Storage Account
-    - etc.
-    Anomaly detection can be performed on Azure activity logs via Microsoft Defender for Cloud Apps.
-- Azure data services – Can:
-    - Classify data in Azure SQL
-    - Create assessments for potential vulnerabilities across Azure SQL and Storage services
-    - Recommend how to mitigate them
-- Networks – Limits exposure to brute force attacks.
-    - Reduce access to virtual machine ports. This prevents unwanted access.
-    - Using the just-in-time VM access:
-    > Secure temporary access policies on selected ports, only for authorized users with allowed source IP ranges/IPs
-
-Defender for Cloud fills three vital needs as you manage the security of your resources and workloads in the cloud and on-premises:
-
-Continuously assess – Know your security posture. Identify and track vulnerabilities.
-Secure – Harden resources and services with Azure Security Benchmark.
-Defend – Detect and resolve threats to resources, workloads, and services.
+#### Asses, Secure, Defend
+- Continuously assess
+    - Know your security posture
+    - Identify and track vulnerabilities
+- Secure
+    - Harden resources and services with Azure Security Benchmark
+- Defend – Detect and resolve threats to resources, workloads, and services.
 Diagram reinforcing assess, secure, and defend.
 
 Continuously assess
