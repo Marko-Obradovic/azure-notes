@@ -1691,16 +1691,44 @@ Resource tags are way to organize resources aside from Subscriptions. Tags provi
 
     This grouping helps you formulate service-level agreements (SLAs)
 
-Security Tags enable you to classify data by its security level, such as public or confidential.
-Governance and regulatory compliance Tags enable you to identify resources that align with governance or regulatory compliance requirements, such as ISO 27001. Tags can also be part of your standards enforcement efforts. For example, you might require that all resources be tagged with an owner or department name.
-Workload optimization and automation Tags can help you visualize all of the resources that participate in complex deployments. For example, you might tag a resource with its associated workload or application name and use software such as Azure DevOps to perform automated tasks on those resources.
-How do I manage resource tags?
-You can add, modify, or delete resource tags through Windows PowerShell, the Azure CLI, Azure Resource Manager templates, the REST API, or the Azure portal.
+- Security
 
-You can use Azure Policy to enforce tagging rules and conventions. For example, you can require that certain tags be added to new resources as they're provisioned. You can also define rules that reapply tags that have been removed. Resources don't inherit tags from subscriptions and resource groups, meaning that you can apply tags at one level and not have those tags automatically show up at a different level, allowing you to create custom tagging schemas that change depending on the level (resource, resource group, subscription, and so on).
+    Tags enable you to classify data by its security level, such as public or confidential.
 
-An example tagging structure
-A resource tag consists of a name and a value. You can assign one or more tags to each Azure resource.
+- Governance and regulatory compliance
+
+    Tags enable you to identify resources that align with governance or regulatory compliance requirements, such as ISO 27001.
+
+    Tags can also be part of your standards enforcement efforts. For example, you might require that all resources be tagged with an owner or department name.
+
+- Workload optimization and automation
+
+    Tags can help you visualize all the resources that participate in complex deployments.
+    
+    Example:
+    > Tagging a resource with its associated workload/application name and using Azure DevOps to perform automated tasks on resources with that tag.
+
+You can add, modify, or delete resource tags through:
+- Windows PowerShell
+- The Azure CLI
+- Azure Resource Manager templates
+- The REST API
+- The Azure portal
+
+You can use Azure Policy to enforce tagging rules and conventions.
+
+For example, a requirement can be that:
+- Tags are added to resources as they're provisioned.
+- certain tags that have been removed are reapplied.
+
+Resources don't inherit tags from subscriptions and resource groups.
+
+#### Example Tagging Structure
+
+A resource tag consists of a name and a value.
+
+You can assign one or more tags to each Azure resource.
+
 
 | Name        | Value                                                                                  |
 |--------------|----------------------------------------------------------------------------------------|
@@ -1710,13 +1738,141 @@ A resource tag consists of a name and a value. You can assign one or more tags t
 | Environment  | An environment name, such as "Prod," "Dev," or "Test."                                |
 | Impact       | How important the resource is to business operations, such as "Mission-critical," "High-impact," or "Low-impact." |
 
-Keep in mind that you don't need to enforce that a specific tag is present on all of your resources. For example, you might decide that only mission-critical resources have the Impact tag. All non-tagged resources would then not be considered as mission-critical.
 
 ## Describe features and tools in Azure for governance and compliance 
 ### Describe the purpose of Microsoft Purview in Azure 
+A set of data governance, risk, and compliance solutions that shows a unified view into insights about the following data:
+- On-premises
+- Multicloud
+- Software-as-a-service
+
+The aim is to stay up-to-date on your data landscape. These features help with that:
+- Automated data discovery
+- Sensitive data classification
+- End-to-end data lineage
+
+Two main solution areas comprise Microsoft Purview:
+- Risk and compliance
+- Unified data governance.
+
+#### Microsoft Purview risk and compliance solutions
+Microsoft 365 is a core component of the Microsoft Purview risk and compliance solutions.
+
+Example Microsoft 365 services that Microsoft Purview uses to help manage and monitor your data:
+- Microsoft Teams
+- OneDrive
+- Exchange
+
+Helps an organization:
+- Protect sensitive data across clouds, apps, and devices.
+- Identify data risks and manage regulatory compliance requirements.
+- Get started with regulatory compliance.
+
+#### Unified data governance
+Microsoft Purview’s robust data governance capabilities enable you to manage your data stored in:
+- Azure
+- SQL and Hive databases
+- Locally
+- Other clouds like Amazon S3
+
+Helps an organization:
+- Create a map of your data estate that includes data classification + end-to-end lineage.
+- Identify where sensitive data is stored in your estate.
+- Create a secure environment for data consumers to find valuable data.
+- Generate insights about how your data is stored and used.
+- Manage access to the data in your estate securely and at scale.
 
 ### Describe the purpose of Azure Policy 
+A service that enables you to create, assign, and manage policies that control/audit your resources.
+
+These policies enforce different rules across your resource configurations so those configurations stay compliant with corporate standards.
+
+You can define:
+- Individual policies
+- Groups of related policies (initiatives)
+
+Azure Policy can:
+- Evaluate resources and highlights resources that aren't compliant with the policies you've created.
+- Prevent noncompliant resources from being created.
+- Be set at each level, enabling you to set policies on a specific:
+    - Resource
+    - Resource group
+    - Subscription
+    - Etc. 
+
+    > Azure Policies are inherited; if you set a policy at a high level, it will be applied to everything within the parent.
+
+    > For example, if you set an Azure Policy on a resource group, all resources created within that resource group will automatically receive the same policy.
+
+Azure Policy comes with built-in policy and initiative definitions for:
+- Storage
+- Networking
+- Compute
+- Security Center
+- Monitoring
+
+> For example, if a policy is defined that only allows virtual machines with a certainsize to be used, that policy is invoked a new VM is made and when existing VMs are resized.
+
+Azure Policy evaluates and monitors VMs created before and after the policy was made.
+
+Azure Policy can automatically remediate noncompliant resources and configurations to ensure the integrity of the state of the resources.
+
+Example:
+
+> All resources in a resource group are tagged with the AppName tag and a value of "SpecialOrders".
+
+> Azure Policy automatically applies that tag if it is missing.
+
+> If there is a specific resource that shouldn't be automatically fixed, it can be flagged as an exception and the policy won’t automatically fix that resource.
+
+Azure Policy integrates with Azure DevOps to enforce compliance rules during both the pre-deployment and post-deployment stages of your CI/CD pipelines.
+
+#### Azure Policy initiatives
+A way of grouping related policies together.
+
+The initiative definition contains all of the policy definitions to help track your compliance state for a larger goal.
+
+Example:
+> The `Enable Monitoring` initiative in `Azure Security Center` monitors all security recommendations across all Azure resource types.
+
+Under this initiative, the following policy definitions are included:
+- Monitor unencrypted SQL Database in Security Center
+
+    This policy monitors for unencrypted SQL databases and servers.
+
+- Monitor OS vulnerabilities in Security Center
+
+    This policy monitors servers that don't satisfy the configured OS vulnerability baseline.
+
+- Monitor missing Endpoint Protection in Security Center
+
+    This policy monitors for servers that don't have an installed endpoint protection agent.
+
+The `Enable Monitoring` initiative contains 100+ separate policy definitions.
+
 ### Describe the purpose of resource locks 
+A resource lock prevents resources from being accidentally deleted or changed.
+
+Resource locks can be applied to:
+- Individual resources
+- Resource groups
+- Subscriptions
+
+Resource locks are inherited; if you place a resource lock on a resource group, all resources in the resource group will also have the resource lock applied.
+
+#### Types of Resource Locks
+1. Delete: Authorized users can read + modify a resource, but not delete.
+2. ReadOnly: Authorized users can read a resource, but not delete/update.
+
+Resource locks can be managed from:
+- The Azure portal
+- PowerShell
+- The Azure CLI
+- An Azure Resource Manager template
+
+To modify a locked resource, you must remove the lock.
+
+Resource locks apply regardless of RBAC permissions. Even if you're an owner.
 
 ## Describe features and tools for managing and deploying Azure resources 
 ### Describe the Azure portal 
