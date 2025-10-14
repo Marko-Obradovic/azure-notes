@@ -2036,23 +2036,29 @@ Azure Monitor Diagram
 
 [azure-monitor-diagram]: https://github.com/Marko-Obradovic/azure-notes/blob/main/images/azure-monitor-diagram.png
 
-An illustration showing the flow of information that Azure Monitor uses to provide monitoring and data visualization.
+On the left: A list of the sources of logging and metric data that can be collected at every layer in your application architecture.
 
-On the left is a list of the sources of logging and metric data that can be collected at every layer in your application architecture, from application to operating system and network.
+In the center: The logging and metric data are stored in central repositories.
 
-In the center, the logging and metric data are stored in central repositories.
+On the right: How the data is used.
 
-On the right, the data is used in several ways. You can view real-time and historical performance across each layer of your architecture or aggregated and detailed information. The data is displayed at different levels for different audiences. You can view high-level reports on the Azure Monitor Dashboard or create custom views by using Power BI and Kusto queries.
+The data can be used to help react to critical events in real time. Alerts delivered to teams via SMS, email, etc, or thresholds can trigger autoscaling functionality to scale to meet the demand.
 
-Additionally, you can use the data to help you react to critical events in real time, through alerts delivered to teams via SMS, email, and so on. Or you can use thresholds to trigger autoscaling functionality to scale to meet the demand.
+#### Azure Log Analytics
+A tool in the Azure portal where you’ll write and run log queries on the data gathered by Azure Monitor.
 
-Azure Log Analytics
-Azure Log Analytics is the tool in the Azure portal where you’ll write and run log queries on the data gathered by Azure Monitor. Log Analytics is a robust tool that supports both simple, complex queries, and data analysis. You can write a simple query that returns a set of records and then use features of Log Analytics to sort, filter, and analyze the records. You can write an advanced query to perform statistical analysis and visualize the results in a chart to identify a particular trend. Whether you work with the results of your queries interactively or use them with other Azure Monitor features such as log query alerts or workbooks, Log Analytics is the tool that you're going to use to write and test those queries.
+Supports both simple, complex queries, and data analysis.
 
-Azure Monitor Alerts
-Azure Monitor Alerts are an automated way to stay informed when Azure Monitor detects a threshold being crossed. You set the alert conditions, the notification actions, and then Azure Monitor Alerts notifies when an alert is triggered. Depending on your configuration, Azure Monitor Alerts can also attempt corrective action.
+#### Azure Monitor Alerts
+An automated way to stay informed when Azure Monitor detects a threshold being crossed.
 
-Screenshot of Azure Monitor Alerts showing total alerts, and then the alerts grouped by severity.
+1. You set the alert conditions + the notification actions
+2. Azure Monitor Alerts notifies when an alert is triggered.
+3. If set up, Azure Monitor Alerts can also attempt corrective action.
+
+![Azure Monitor Alerts][azure-monitor-alerts]
+
+[azure-monitor-alerts]: https://github.com/Marko-Obradovic/azure-notes/blob/main/images/azure-monitor-alerts.png
 
 Alerts can be set up to monitor the logs and trigger on certain log events, or they can be set to monitor metrics and trigger when certain metrics are crossed. For example, you could set a metric-based alert up to notify you when the CPU usage on a virtual machine exceeded 80%. Alert rules based on metrics provide near real time alerts based on numeric values. Rules based on logs allow for complex logic across data from multiple sources.
 
