@@ -1509,10 +1509,11 @@ Example Protection:
 - Securing the management ports of your VMs with just-in-time access- Adaptive application controls to create allowlists for what apps should and shouldn't run on your machines.
 
 # Describe Azure management and governance (30–35%) 
+[https://learn.microsoft.com/en-us/training/paths/describe-azure-management-governance/]
 ## Describe cost management in Azure 
 ### Describe factors that can affect costs in Azure 
 #### All factors:
-- Resources
+- Resource Type/Settings/Location
 - Consumption
 - Maintenance
 - Geography
@@ -1520,10 +1521,9 @@ Example Protection:
 - Azure Marketplace
 
 #### 1. Resources:
-
 - Resource type
 - Resource settings
-- Azure region
+- Azure region (Ties in with Geography)
 
 When you provision an Azure resource, Azure creates metered instances for that resource. The meters track the resources' usage and generate a usage record that is used to calculate your bill.
 
@@ -1558,14 +1558,13 @@ Pricing will vary based on which regions resources are provisioned in. This is b
 Network traffic is also impacted based on geography. For example, it’s cheaper to move info within Europe than to from Europe to Asia.
 
 Billing zones are a factor in determining the cost of some Azure services.
+> Billing zones are geographical groupings of Azure regions used to determine the cost of outbound data transfers from Azure data centers.
 
 Bandwidth refers to data moving in and out of Azure datacenters.
 
 Some inbound data transfers (data going into Azure datacenters) are free.
 
 For outbound data transfers (data leaving Azure datacenters), data transfer pricing is based on zones.
-
-A zone is a geographical grouping of Azure regions for billing purposes.
 
 #### 5. Subscription type
 Some Azure subscription types also include usage allowances, which affect costs.
@@ -1576,6 +1575,7 @@ Example:
 
 #### 6. Azure Marketplace
 [https://learn.microsoft.com/en-us/training/modules/describe-cost-management-azure/3-compare-pricing-total-cost-of-ownership-calculators]
+
 Azure Marketplace lets you purchase Azure-based solutions/services from third-party vendors.
 
 Examples:
@@ -1586,9 +1586,10 @@ Examples:
 Everything on Azure Marketplace is certified and compliant with Azure policies and standards.
 
 ### Compare the pricing calculator and the Total Cost of Ownership (TCO) Calculator 
-_The Total Cost of Ownership (TCO) calculator has been retired._
+_The Total Cost of Ownership (TCO) calculator has been retired. Microsoft recommends using Azure Migrate business case for what TCO does, but this exam will test on TCO so learn that for now._
 
-The pricing calculator provides an estimated cost for provisioning resources in Azure.
+Pricing Calculator: "Gets pricing when you know exactly what you need in Azure, or want to look up pricing for the resources you know about."
+> The pricing calculator provides an estimated cost for provisioning resources in Azure.
 
 Capabilities:
 - Estimate cost for individual resources
@@ -1603,11 +1604,13 @@ With the pricing calculator, you can estimate the cost of:
     - Access tier
     - Redundancy
 
+TCO Calculator: Used when you want to estimate how much it would cost to move your resources from on-premises to Azure, by inputting what you are currently using, and letting it convert that into Azure equivalence.
+
 Exercise: https://learn.microsoft.com/en-us/training/modules/describe-cost-management-azure/4-exercise-estimate-workload-costs-use-pricing-calculator
 
-### Cost Management 
+### Cost Management Tool
 Provides the ability to:
-- Check Azure resource costs
+- Check Current Azure resource costs
 - Create alerts based on resource spend
 - Create budgets that can be used to automate management of resources
 
