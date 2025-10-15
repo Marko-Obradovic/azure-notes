@@ -2060,21 +2060,39 @@ An automated way to stay informed when Azure Monitor detects a threshold being c
 
 [azure-monitor-alerts]: https://github.com/Marko-Obradovic/azure-notes/blob/main/images/azure-monitor-alerts.png
 
-Alerts can be set up to monitor the logs and trigger on certain log events, or they can be set to monitor metrics and trigger when certain metrics are crossed. For example, you could set a metric-based alert up to notify you when the CPU usage on a virtual machine exceeded 80%. Alert rules based on metrics provide near real time alerts based on numeric values. Rules based on logs allow for complex logic across data from multiple sources.
+Alerts can be set up to:
+- Monitor the logs and trigger on certain log events
+- Monitor metrics and trigger when certain metrics are crossed
 
-Azure Monitor Alerts use action groups to configure who to notify and what action to take. An action group is simply a collection of notification and action preferences that you associate with one or multiple alerts. Azure Monitor, Service Health, and Azure Advisor all use actions groups to notify you when an alert has been triggered.
+Azure Monitor Alerts use action groups to configure who to notify and what action to take.
 
-Application Insights
-Application Insights, an Azure Monitor feature, monitors your web applications. Application Insights is capable of monitoring applications that are running in Azure, on-premises, or in a different cloud environment.
+Action group: A collection of notification + action preferences associate with one or more alerts.
 
-There are two ways to configure Application Insights to help monitor your application. You can either install an SDK in your application, or you can use the Application Insights agent. The Application Insights agent is supported in C#.NET, VB.NET, Java, JavaScript, Node.js, and Python.
+Services that use Azzure Advisor to notify when an alert is triggered:
+- Azure Monitor
+- Service Health
+- Azure Advisor
 
-Once Application Insights is up and running, you can use it to monitor a broad array of information, such as:
+#### Application Insights
+An Azure Monitor feature that monitors your web applications.
 
-Request rates, response times, and failure rates
-Dependency rates, response times, and failure rates, to show whether external services are slowing down performance
-Page views and load performance reported by users' browsers
-AJAX calls from web pages, including rates, response times, and failure rates
-User and session counts
-Performance counters from Windows or Linux server machines, such as CPU, memory, and network usage
-Not only does Application Insights help you monitor the performance of your application, but you can also configure it to periodically send synthetic requests to your application, allowing you to check the status and monitor your application even during periods of low activity.
+These applications can run:
+- In Azure
+- On-premises
+- In a different cloud environment
+
+Ways of configuring Application Insights to monitor your application:
+- Install an SDK in your application
+- Use the Application Insights agent
+
+You can use Application Insights to monitor:
+- Request rates, response times, and failure rates
+- Dependency rates, response times, and failure rates, to show whether external services are slowing down performance
+- Page views and load performance reported by users' browsers
+- AJAX calls from web pages, including rates, response times, and failure rates
+- User and session counts
+- Performance counters from Windows or Linux server machines, such as CPU, memory, and network usage
+
+Application Insights can do the following:
+- Help you monitor the performance of your application
+- Can be configured to periodically send synthetic requests to your application, allowing you to check the status + monitor your application during periods of low activity.
