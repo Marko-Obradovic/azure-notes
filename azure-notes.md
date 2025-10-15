@@ -556,6 +556,14 @@ Boundaries:
                 └── ...
 ```
 
+## Describe Azure compute and networking services
+### Compare compute types, including containers, virtual machines, and functions
+### Describe virtual machine options, including Azure virtual machines, Azure Virtual Machine Scale Sets, availability sets, and Azure Virtual Desktop
+### Describe the resources required for virtual machines
+### Describe application hosting options, including web apps, containers, and virtual machines
+### Describe virtual networking, including the purpose of Azure virtual networks, Azure virtual subnets, peering, Azure DNS, Azure VPN Gateway, and ExpressRoute
+### Define public and private endpoints
+
 ## Describe Azure storage services 
 ### Compare Azure Storage services 
 [https://learn.microsoft.com/en-us/azure/architecture/guide/technology-choices/storage-options]
@@ -1585,8 +1593,7 @@ Examples:
 
 Everything on Azure Marketplace is certified and compliant with Azure policies and standards.
 
-### Compare the pricing calculator and the Total Cost of Ownership (TCO) Calculator 
-_The Total Cost of Ownership (TCO) calculator has been retired. Microsoft recommends using Azure Migrate business case for what TCO does, but this exam will test on TCO so learn that for now._
+### Explore the pricing calculator 
 
 Pricing Calculator: "Gets pricing when you know exactly what you need in Azure, or want to look up pricing for the resources you know about."
 > The pricing calculator provides an estimated cost for provisioning resources in Azure.
@@ -1603,8 +1610,6 @@ With the pricing calculator, you can estimate the cost of:
     - Storage type
     - Access tier
     - Redundancy
-
-TCO Calculator: Used when you want to estimate how much it would cost to move your resources from on-premises to Azure, by inputting what you are currently using, and letting it convert that into Azure equivalence.
 
 Exercise: https://learn.microsoft.com/en-us/training/modules/describe-cost-management-azure/4-exercise-estimate-workload-costs-use-pricing-calculator
 
