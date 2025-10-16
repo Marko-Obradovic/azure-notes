@@ -215,7 +215,7 @@ Because of things like
 - Load balancing
 - High availability
 
-You can predicting the resources needed to deliver a positive experience for your customers.
+You can predict the resources needed to deliver a positive experience for your customers.
 
 #### Cost Predictability:
 
@@ -638,7 +638,6 @@ You still need to configure, update, and maintain the software that runs on the 
 You can create/use already created images to rapidly provision VMs.
 > Image = Template used to create a VM.
 
-#### Scale VMs in Azure
 You can either:
 - Run single VMs for:
     - Testing
@@ -1003,16 +1002,22 @@ Works With Azure Files
 
 **Azure Data Box**
 
-A solution that allows for offline, bulk data transfer in and out of Azure using a physical storage appliance.
-It's used when network-based data transfer is constrained by:
-- Time
-- Network availability
-- Cost
+Built for massive data transfers that are not feasable do over the internet.
 
-Works With:
-- Blob
-- Files
-- Disks
+This is a physical device shipped to you by Microsoft.
+
+Ideal for:
+- multi-terabyte datasets
+- environments with limited connectivity.
+
+How it works:
+1. You copy your data onto the device locally.
+2. Microsoft then securely transfers the data to Azure on your behalf.
+
+Data Box supports:
+- Bulk data migration
+- Disaster recovery data import
+- Offline transfers where privacy and bandwidth are concerns
 
 **Data Box Gateway**
 
@@ -1129,7 +1134,6 @@ The storage account provides a unique namespace for your Azure Storage data that
 Data in your storage account is durable and highly available, secure, and massively scalable.
 
 ### Storage Types
-
 #### Standard general-purpose v2
 Supported Storage Services:
 - Blob Storage (including Data Lake Storage)
@@ -1282,22 +1286,7 @@ Capabilities:
 - Provides insights before you move anything.
 
 #### Azure Data Box
-Built for massive data transfers that are not feasable do over the internet.
-
-This is a physical device shipped to you by Microsoft.
-
-Ideal for:
-- multi-terabyte datasets
-- environments with limited connectivity.
-
-How it works:
-1. You copy your data onto the device locally.
-2. Microsoft then securely transfers the data to Azure on your behalf.
-
-Data Box supports:
-- Bulk data migration
-- Disaster recovery data import
-- Offline transfers where privacy and bandwidth are concerns
+See Data Box definition further up
 
 ## Describe Azure identity, access, and security 
 ### Describe directory services in Azure, including Microsoft Entra ID and Microsoft Entra Domain Services 
@@ -1706,11 +1695,11 @@ These layers provide a guideline for you to help make security configuration dec
 
 More detailed overview of each layer:
 
-#### Physical security
+#### Physical security Layer
 - Physically securing access to buildings
 - Controlling access to computing hardware within the datacenter are the first line of defense.
 
-#### Identity and access
+#### Identity and access Layer
 
 At this layer, it's important to:
 
@@ -1720,7 +1709,7 @@ At this layer, it's important to:
 - Use single sign-on (SSO) and multifactor authentication.
 - Audit events and changes: Sign-in events/changes are logged 
 
-#### Perimeter
+#### Perimeter Layer
 Protects from network-based attacks against your resources
 - Identifies these attacks
 - Eliminates their impact
@@ -1730,7 +1719,7 @@ At this layer, it's important to:
 - Use DDoS protection to filter large-scale attacks before they can affect the availability of a system for users.
 - Use perimeter firewalls to identify and alert on malicious attacks against your network.
 
-#### Network
+#### Network Layer
 Limits network connectivity across all resources to allow only what's required.
 By limiting this communication, you reduce the risk of an attack spreading to other systems in your network.
 
@@ -1741,13 +1730,13 @@ At this layer, it's important to:
 - Restrict inbound internet access and limit outbound access where appropriate.
 - Implement secure connectivity to on-premises networks.
 
-#### Compute
+#### Compute Layer
 At this layer, it's important to:
 
 - Secure access to virtual machines.
 - Implement endpoint protection on devices and keep systems patched and current.
 
-#### Application
+#### Application Layer
 Helps reduce the number of vulnerabilities introduced in code.
 Every development team should ensure that its applications are secure by default.
 
@@ -1757,7 +1746,7 @@ At this layer, it's important to:
 - Store sensitive application secrets in a secure storage medium.
 - Make security a design requirement for all application development.
 
-#### Data
+#### Data Layer
 Those who store and control access to data are responsible for ensuring that it's properly secured.
 
 Often, regulatory requirements dictate controls and processes that must be in place to ensure:
@@ -2436,7 +2425,7 @@ Azure Monitor Alerts use action groups to configure who to notify and what actio
 
 Action group: A collection of notification + action preferences associate with one or more alerts.
 
-Services that use Azzure Advisor to notify when an alert is triggered:
+Services that use Azure Advisor to notify when an alert is triggered:
 - Azure Monitor
 - Service Health
 - Azure Advisor
