@@ -1,5 +1,5 @@
 # Describe cloud concepts (25–30%) 
-
+[https://learn.microsoft.com/en-us/training/paths/microsoft-azure-fundamentals-describe-cloud-concepts/]
 ## Describe cloud computing 
 ### Define cloud computing 
 A service that provides computational resources over the internet.
@@ -244,7 +244,7 @@ governance ensures your cloud resources stay compliant, consistent, and under co
 
 In practice, this means:
 - ARM templates/policies make sure resources are deployed with the right config.
-- Compliance & Audit tools scan your environment for resources that don’t meet standards:
+- Compliance and Audit tools scan your environment for resources that don’t meet standards:
     - Azure Policy
     - Blueprints
 - Automatic Updates to Standards across the whole cloud environment.
@@ -323,6 +323,7 @@ Disadvantages:
 - Less control over performance, features, and data handling
 
 # Describe Azure architecture and services (35–40%) 
+[https://learn.microsoft.com/en-us/training/paths/azure-fundamentals-describe-azure-architecture-services/]
 ## Describe the core architectural components of Azure
 ### Describe Azure regions
 [https://idodata.com/2025/05/06/az-900-describe-azure-regions-region-pairs-and-sovereign-regions/]
@@ -534,14 +535,14 @@ Boundaries:
         │       │   │   │   ├── Blob Containers
         │       │   │   │   │   └── Blobs (files)
         │       │   │   │   ├── File Shares
-        │       │   │   │   │   └── Files & Directories
+        │       │   │   │   │   └── Files and Directories
         │       │   │   │   ├── Queues
         │       │   │   │   │   └── Messages
         │       │   │   │   ├── Tables
         │       │   │   │   │   └── Entities
         │       │   │   │   └── Data Lake Gen2 (if enabled)
         │       │   │   │       └── File System
-        │       │   │   │       └── Directories & Files
+        │       │   │   │       └── Directories and Files
         │       │   │   ├── Resource: Virtual Machine
         │       │   │   └── Resource: Virtual Network
         │       │   └── Resource Group 2
@@ -557,14 +558,373 @@ Boundaries:
 ```
 
 ## Describe Azure compute and networking services
-### Compare compute types, including containers, virtual machines, and functions
-### Describe virtual machine options, including Azure virtual machines, Azure Virtual Machine Scale Sets, availability sets, and Azure Virtual Desktop
-### Describe the resources required for virtual machines
-### Describe application hosting options, including web apps, containers, and virtual machines
-### Describe virtual networking, including the purpose of Azure virtual networks, Azure virtual subnets, peering, Azure DNS, Azure VPN Gateway, and ExpressRoute
-### Define public and private endpoints
+[https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/]
+### Functions
+An event-driven, serverless compute option that doesn’t require maintaining virtual machines or containers.
 
-## Describe Azure storage services 
+Benefits:
+- Focus on the code running your service, not on the underlying platform or infrastructure.
+- Functions scale automatically based on demand.
+- Azure Functions runs your code only when it triggers + automatically deallocates resources when the function is finished. Azure only charges you for the CPU time used while your function runs.
+- Functions can be either stateless or stateful:
+    - When stateless (default), they restart every time they respond to an event.
+    - When they're stateful (called Durable Functions), a context is passed through the function to track prior activity.
+- Key component of serverless computing.
+- Can be a general compute platform for running any type of code.
+- If the needs of the developer's app change, you can deploy the project in an environment that isn't serverless - this allows you to:
+    - Manage scaling
+    - Run on virtual networks
+    - Completely isolate the functions
+
+### Containers
+For running multiple instances of an application on a single host machine.
+
+Containers are a virtualization environment. Like running multiple virtual machines on a single physical host, you can run multiple containers on a single physical/virtual host.
+
+Unlike virtual machines, you don't manage the operating system for a container. Virtual machines appear to be an instance of an operating system that you can connect to and manage.
+
+Containers are lightweight and designed to be created, scaled out, and stopped dynamically.
+
+It's possible to create + deploy virtual machines as application demand increases, but containers are a lighter weight, more agile method.
+
+Containers you to quickly restart them easily if there's a crash or hardware interruption.
+
+#### Azure Container Instances (PaaS service)
+The fastest + simplest way to run a container in Azure. 
+
+You don't need to manage virtual machines or adopt any additional services.
+
+You to upload your containers, then the service runs the containers for you.
+
+#### Azure Container Apps (PaaS service)
+Similar to a container instance:
+- Fast + easy to run containers
+- Remove the container management piece
+
+The extra benefit is the ability to incorporate load balancing and scaling.
+
+#### Azure Kubernetes Service (AKS)
+A container orchestration service.
+
+When you're deploying a fleet of containers, AKS can make fleet management simpler and more efficient.
+
+Containers are often used to create solutions by using a microservice architecture.
+> Microservice Architecture: Where you break solutions into smaller, independent pieces.
+
+Example: You might split a website into:
+1. A container hosting your front end
+2. Another hosting your back end
+3. A third for storage.
+
+If Your website back-end reaches capacity, but the front end and storage aren't stressed, with containers, you could scale the back-end separately to improve performance.
+
+This split allows you to separate portions of your app into logical sections that can be independently:
+- Maintained
+- Scaled
+- Updated
+
+### Describe virtual machine options, including Azure virtual machines, Azure Virtual Machine Scale Sets, availability sets, and Azure Virtual Desktop
+VMs provide infrastructure as a service (IaaS) in the form of a virtualized server.
+
+Just like a physical computer, you can customize all of the software running on your VM. VMs are an ideal choice when you need:
+- Total control over the operating system (OS).
+- The ability to run custom software.
+- To use custom hosting configurations.
+
+Gives you the flexibility of virtualization without having to buy + maintain the physical hardware that runs the VM.
+
+You still need to configure, update, and maintain the software that runs on the VM.
+
+You can create/use already created images to rapidly provision VMs.
+> Image = Template used to create a VM.
+
+#### Scale VMs in Azure
+You can either:
+- Run single VMs for:
+    - Testing
+    - Development
+    - Minor tasks
+- Group VMs together to provide
+    - High availability
+    - Scalability
+    - Redundancy
+
+Azure can manage the grouping of VMs for you using features like scale sets and availability sets:
+
+#### Virtual machine scale sets
+Let you create and manage a group of identical, load-balanced VMs.
+
+Allow you to centrally manage a large number of VMs quickly.
+
+The number of VM instances can automatically scale in response to demand, based on a defined schedule.
+
+Virtual machine scale sets also automatically deploy a load balancer to make sure that your resources are being used efficiently.
+
+#### Virtual machine availability sets
+A tool to help you build a more resilient, highly available environment.
+
+Designed to ensure that VMs:
+- Stagger updates
+- Have varied power + network connectivity
+    > Prevents you from losing all VMs with a single network/power failure.
+
+Availability sets accomplish these objectives by grouping VMs in two ways:
+1. Update Domain
+    - Groups VMs that can be rebooted at the same time.
+    - With this, you can apply updates with only one update domain grouping offline at a time.
+    - All of the machines in one update domain update.
+    - An update group in the process of updating has 30 minutes to recover before maintenance on the next update domain starts.
+
+2. Fault Domain
+    - Groups VMs by common power source and network switch.
+    - By default, an availability set splits your VMs across up to three fault domains to prevent against a physical power/networking failure.
+
+VM Use Cases:
+- __During testing and development:__ VMs provide a quick and easy way to create/delete different OS and application configurations.
+- __When running applications in the cloud__
+- __When extending your datacenter to the cloud:__ An organization can extend its own on-premises network:
+    1. Creating a virtual network
+    2. Add VMs to that virtual network
+    3. Use an app like SharePoint to run on an Azure VM rather than locally.
+- __During disaster recovery:__ Example: A primary datacenter fails; you can create VMs running on Azure, run critical applications on them temporarily, then shut them down when the primary datacenter starts again.
+
+Lift and Shift: Moving from physical servers to VMs on the cloud.
+    > You can create an image of the physical server and host it within a VM with little or no changes.
+
+#### VM Resources
+When provisioning a VM, you can pick the resources associated with that VM, including:
+- Size (purpose, number of processor cores, and amount of RAM)
+- Storage disks (hard disk drives, solid state drives, etc.)
+- Networking (virtual network, public IP address, and port configuration)
+
+#### Azure Virtual Desktop
+[https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/4-virtual-desktop]
+
+Azure Virtual Desktop is a desktop and application virtualization service on the cloud.
+
+It enables you to use a cloud-hosted version of Windows from any location.
+
+Works with:
+- Different devices
+- Different operating systems
+- Apps enabling remote access to desktops
+- Most modern browsers.
+
+Provides centralized security management for users' desktops with Microsoft Entra ID, with which you can:
+- __Secure user sign ins__ by enabling multifactor authentication.
+- __Secure access to data__ by Assign granular role-based access controls (RBACs) to users.
+
+
+The data and apps are separated from the local hardware. The actual desktop and apps are running in the cloud, so the risk of confidential data being left on a personal device is reduced.
+
+User sessions are isolated in single and multi-session environments.
+
+Azure Virtual Desktop lets you use Windows 10/11 Enterprise multi-session (enables multiple concurrent users on a single VM).
+
+### Describe the resources required for virtual machines
+1. Compute Resources
+- CPU (Central Processing Unit)
+    - Executes instructions
+    - processes data
+
+    Examples:
+    - __B-Series:__ Offers burstable CPU performance for workloads that do not require continuous CPU use
+    - __F-Series:__ Provides a higher CPU-to-memory ratio for more CPU-intensive applications
+
+- Memory (RAM)
+    - Temporary data storage, directly accessed by the CPU.
+    - Memory significantly affects VM performance.
+
+- VM Size
+    - VMs are classified into series + sizes indicating the VM's:
+        - Compute
+        - Memory
+        - Storage capabilities
+        
+        Examples:
+        - __Dv4 series:__ Designed for general-purpose workloads
+        - __Ev4 series:__ Optimized for memory-intensive applications
+
+2. Storage Resources
+- Disk Storage
+    - Used for the:
+        - Operating system
+        - Applications
+        - Data
+    - Storage Types:
+        - Azure Blob Storage
+            - Used for object storage (e.g., unstructured data like images, videos, backups)
+        - Managed Disks
+            - Simplifies disk management for Azure VMs
+        - Standard HDD
+            - Cost-effective
+            - Suitable for backup and infrequent access workloads
+        - Standard SSD
+            - Balanced performance and cost
+            - Ideal for dev/test environments and light production workloads
+        - Premium SSD
+            - High performance
+            - Designed for production workloads
+            - Low latency
+            - High IOPS (Input/Output Operations Per Second)
+        - Ultra Disk
+            - Designed for IO-intensive applications
+            - Offers sub-millisecond latency
+            - Extremely high throughput and IOPS
+
+- Disk Performance
+    - The type of disk affects the performance of your VM.
+
+3. Networking Resources
+- Virtual Network (VNet)
+    - VNets enable Azure resources to communicate with:
+        - Each other
+        - The internet
+        - On-premises networks
+    > It’s essential to configure the VNet and subnets correctly to ensure connectivity and security.
+
+- IP Addresses
+    - VMs can have:
+        - Public IP addresses (for internet access)
+        - Private IP addresses (for internal network communication)
+    - Static IP addressing:
+        - IP address is manually assigned, configured and managed
+        - Remains fixed
+        - Useful for servers, remote access, and devices needing consistent access
+        - Easier to manage firewall rules and DNS settings
+    - Dynamic IP addressing:
+        - IP address is automatically assigned by DHCP (Dynamic Host Configuration Protocol)
+        - Changes periodically or when the device reconnects
+        - Ideal for general client devices like laptops, phones, etc.
+        - Easier to scale and manage in large networks
+
+- Network Security Groups (NSGs)
+    - Used to define network security rules that allow/deny inbound and outbound traffic to VMs/subnets. This protects VMs from unwanted traffic.
+
+4. Additional Considerations
+- Operating System
+- Scaling
+    - E.g. Azure Virtual Machine Scale Sets - vital for managing performance + availability during varying load conditions.
+- High Availability
+    - E.g. Using Availability Sets/Availability Zones - helps ensure minimal downtime.
+- Management Tools
+    - E.g. Azure Monitor/Azure Automation help manage VM performance and automate routine tasks, respectively.
+- Licensing
+    - Licensing for software used in VMs is crucial from a legal/financial standpoint.
+
+#### Example VM Configurations
+
+| Series | Purpose                          | Example VM Size | vCPU | RAM   | Disk Options        |
+|--------|----------------------------------|-----------------|------|-------|---------------------|
+| B      | Cost-effective, burstable workloads | B2s             | 2    | 4 GB  | Standard HDD/SSD    |
+| Dv4    | General purpose                  | D4s_v4          | 4    | 16 GB | Premium SSD         |
+| Ev4    | Memory-intensive applications    | E4s_v4          | 4    | 32 GB | Premium SSD         |
+| F      | Compute-intensive jobs           | F4s_v2          | 4    | 8 GB  | Premium SSD         |
+
+### Web Apps in Azure App Service
+Azure App Service is a fully managed platform for:
+- Building
+- Deploying
+- Scaling web applications
+
+The Web Apps feature is a part of this service. It allows for quick deployment of enterprise-grade web applications without dealing with the underlying infrastructure.
+
+Benefits and features of Azure Web Apps:
+- __Integrated Deployment:__ Smooth integration with Visual Studio, GitHub, and Azure DevOps for continuous integration and deployment (CI/CD).
+- __Global scalability:__
+- __Built-in Security:__ Layers of security including network isolation and threat protection.
+- __Managed Environment:__ Azure handles the maintenance and patching of the server environment.
+- __Application Insights:__ Built-in performance monitoring and troubleshooting through Azure Application Insights.
+
+__Example:__ A company can deploy a marketing website that experiences variable traffic throughout the year. With Azure Web Apps, they can scale up resources during peak periods and scale down when traffic is low, optimizing costs.
+
+### Describe virtual networking, including the purpose of Azure virtual networks, Azure virtual subnets, peering, Azure DNS, Azure VPN Gateway, and ExpressRoute
+Provides the fundamental building blocks for network communication in the cloud.
+
+| Feature             | Purpose                                                             |
+|---------------------|---------------------------------------------------------------------|
+| Azure Virtual Networks | Provides an isolated, private cloud environment for resources       |
+| Azure Subnets          | Segments VNets into more manageable and secure portions            |
+| VNet Peering           | Connects VNets for low-latency, high-bandwidth communication       |
+| Azure DNS              | Manages DNS domains and records for Azure-hosted services          |
+| Azure VPN Gateway      | Secures remote access connections to Azure VNets                   |
+| Azure ExpressRoute     | Offers a private, dedicated network connection to Azure            |
+
+#### Azure Virtual Networks (VNet)
+A key feature providing an isolated and private environment on the cloud.
+
+VNets allow Azure resources and applications to securely communicate with:
+- Each other
+- The internet
+- On-premises networks
+
+The purpose of VNets is to create a network experience similar a traditional network, but with the scale/flexibility of the cloud. It does this by providing network services such as:
+- Private IP address allocations
+- DNS settings
+- Security policies
+- Routing 
+
+#### Subnets within Azure Virtual Networks
+Subnets enable you to segment the virtual network into one or more sub-networks, allowing for:
+- Organized allocation of IP address ranges for better management
+- Secure separation of resources for better isolation
+
+For example, you could have a subnet for front-end web servers and a separate subnet for backend databases, limiting the access to the backend only to the resources that require it.
+
+#### VNet Peering
+A mechanism connecting 2+ virtual networks in Azure. This allows resources in different VNets to communicate directly with each other, using Azure’s backbone network.
+
+Peering ensures a low-latency, high-bandwidth connection between resources in different VNets, without the need for a gateway or affecting the performance. This is useful for complex architectures where resources in different VNets need secure and fast inter-connectivity.
+
+#### Azure DNS
+The system providing name resolution services to Azure resources.
+
+Allows you to:
+- Host a DNS domain
+- Manage the DNS records for your domain
+
+Ensures that user requests are directed to the correct resources.
+
+#### Azure VPN Gateway
+Acts as a secure point of connectivity to Azure VNets.
+
+It enables you to establish secured cross-premises virtual network connections, using industry-standard protocols such as IPsec and SSL.
+
+For example, employees working remotely can connect securely to the corporate Azure VNet over a VPN, providing access to corporate applications/resources as if they were on-premises.
+
+#### Azure ExpressRoute
+A service enabling private connections between Azure datacenters and on-premises infrastructure/colocation facilities.
+
+This bypasses the public internet and provides a more reliable, high-speed, and low-latency connection.
+
+ExpressRoute is often used by enterprises that require a dedicated and private connection to their cloud services for critical applications and data.
+
+### Define public and private endpoints
+#### Public Endpoints in Azure
+Interfaces through which resources in Azure can be accessed from the internet.
+
+When a service (E.g., an Azure Web App or a storage account) is configured with a public endpoint, it receives a publicly accessible URL and can be reached from anywhere on the web. This is for services meant to be consumed by a broad audience.
+
+#### Private Endpoints in Azure
+Used to provide secure and private access to Azure services from within Azure Virtual Networks (VNets).
+
+When an Azure service is connected to a VNet through a private endpoint, it is isolated from the public internet. This is crucial for enhancing security and network isolation for sensitive, business-critical applications or data stores.
+
+Private endpoints make use of Azure Private Link, a service that enables Azure resources to be accessed via a private IP address within the VNet. Traffic between the VNet and the service travels over the Microsoft backbone network, avoiding public internet exposure and reducing the risk of external attacks.
+
+#### Comparison between Public and Private Endpoints
+
+| Feature            | Public Endpoint                                | Private Endpoint                                           |
+|--------------------|------------------------------------------------|------------------------------------------------------------|
+| Accessibility      | Accessible from the internet                   | Accessible only within a VNet                              |
+| Network Isolation  | Less isolated (publicly reachable)             | Highly isolated (no direct internet access)                |
+| Security           | Potentially open to more attack vectors        | Increased security due to network isolation                |
+| Connectivity       | Requires proper DNS configuration and security rules | Requires Azure Private Link and VNet integration     |
+| DNS Resolution     | Resolves to public IP addresses                | Resolves to private IP addresses within the VNet           |
+| Use Cases          | Customer-facing apps, public APIs              | Sensitive apps, internal databases and services            |
+| Traffic Routing    | Via the public internet                        | Via Microsoft’s backbone network (no internet travel)      |
+
+## Azure storage services 
 ### Compare Azure Storage services 
 [https://learn.microsoft.com/en-us/azure/architecture/guide/technology-choices/storage-options]
 
@@ -631,7 +991,7 @@ Use Cases:
 - Big data analytics with Hadoop/Spark
 
 
-#### 🔄 [ Integration & Sync Tools ]
+#### 🔄 [ Integration and Sync Tools ]
 These services extend or connect core storage:
 
 **Azure File Sync**
@@ -667,7 +1027,7 @@ The device then transfers your data to:
 - Page blobs
 - Azure Files.
 
-#### 🚀 [ Advanced & Specialized Storage ]
+#### 🚀 [ Advanced and Specialized Storage ]
 These are optimized for performance, container workloads, or HPC (High-Performance Computing):
 
 **Azure NetApp Files**
@@ -703,7 +1063,7 @@ A volume management + deployment + orchestration service that is:
 It integrates with Kubernetes
 - Allows you to dynamically + automatically provision persistent volumes to store data for stateful applications running on Kubernetes clusters.
 
-#### 📡 [ Edge & Hybrid Solutions ]
+#### 📡 [ Edge and Hybrid Solutions ]
 These bring Azure Storage closer to your location:
 
 **Azure Stack Edge**
@@ -1320,7 +1680,7 @@ You can visualize defense-in-depth as a set of layers, with the data to be secur
 
 ```
 Physical Security/
-└── Identity & Access/
+└── Identity and Access/
     └── Perimeter/
         └── Network/
             └── Compute/
