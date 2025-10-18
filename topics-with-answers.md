@@ -1,0 +1,176 @@
+- __Shared responsibility model:__ A cloud security framework where the provider manages infrastructure security, while customers handle data, identity, and access management.
+- __Public Cloud Model:__ A cloud environment where services are offered over the internet by third-party providers and shared among multiple tenants.
+- __Private Cloud Model:__ A cloud setup dedicated to a single organization, offering more control and customization, typically hosted on-premises or by a third party.
+- __Hybrid Cloud Model:__ Combines public and private clouds, allowing data and applications to move between them for greater flexibility.
+- __Multi-Cloud Model:__ Uses multiple cloud providers to avoid vendor lock-in and optimize performance or cost.
+- __Consumption-based model:__ Users pay only for the resources they consume.
+- __CapEx:__ Capital Expenditure; upfront investment in physical infrastructure like servers and data centers.
+- __OpEx:__ Operational Expenditure; ongoing costs for services and maintenance, often associated with cloud usage.
+- __Cloud pricing models:__ Include pay-as-you-go, reserved instances, and spot pricing, offering flexibility based on usage patterns.
+- __Pay as you go:__ Charges users based on actual usage without long-term commitments.
+- __Reserved Instances:__ Pre-purchased cloud resources for a fixed term at a discounted rate.
+- __Spot Instances:__ Unused cloud capacity offered at steep discounts, ideal for fault-tolerant workloads.
+- __Serverless:__ A cloud execution model where developers deploy code without managing servers; the cloud provider handles infrastructure.
+- __Benefits of using cloud services:__
+    - scalability
+    - cost-efficiency
+    - high availability
+    - rapid deployment
+- __High availability:__ Ensures systems remain operational with minimal downtime, often through redundancy.
+- __Scalability:__ Ability to adjust resources up or down based on demand.
+- __Reliability:__ Consistent performance and uptime of services.
+- __Performance Predictability:__ Assurance that services will meet expected performance levels.
+- __Cost Predictability:__ Ability to forecast expenses based on usage and pricing models.
+- __SLA:__ Service Level Agreement; a contract defining performance standards and uptime guarantees.
+- __Azure Firewall:__ A managed, cloud-based network security service that protects Azure Virtual Network resources.
+- __Manageability in the cloud:__ Refers to tools and practices for monitoring, configuring, and maintaining cloud resources.
+- __Infrastructure as a Service (IaaS):__ Provides virtualized computing resources over the internet.
+- __Platform as a Service (PaaS):__ Offers hardware and software tools over the internet, typically for app development.
+- __Software as a Service (SaaS):__ Delivers software applications over the internet on a subscription basis.
+- __Azure Load Balancer:__ Distributes incoming network traffic across multiple Azure resources to ensure reliability and performance.
+- __Azure regions:__ Geographic areas where Azure data centers are located.
+- __Region Pairs:__ Two Azure regions paired for disaster recovery and data residency.
+- __Sovereign regions:__ Azure regions isolated for compliance with national regulations, like Azure Government.
+- __Azure datacenters:__ Physical facilities housing Azure’s computing infrastructure.
+- __Availability zones:__ Physically separate locations within a region, each with independent power and networking.
+- __Resources:__ Individual services or components in Azure, such as VMs, databases, or storage accounts.
+- __Azure Solution:__ A combination of Azure services configured to solve a specific business need.
+- __Resource Groups:__ Containers that hold related Azure resources for unified management.
+- __Metrics blade:__ Azure portal feature displaying performance metrics for resources.
+- __Deployments blade:__ Shows deployment history and status of resources in Azure.
+- __Policy blade:__ Interface for managing Azure policies that enforce organizational standards.
+- __Diagnostics settings blade:__ Configures logging and monitoring for Azure resources.
+- __Management groups:__ Hierarchical containers for organizing subscriptions in Azure.
+- __Subscriptions:__ Units of Azure service access and billing, tied to a user or organization.
+- __Billing boundary:__ Defines the scope for invoicing and payment within Azure.
+- __Access control boundary:__ Determines who can access and manage Azure resources.
+- __Functions:__ Serverless compute service in Azure for running event-driven code.
+- __Containers (As a concept):__ Lightweight, portable units for running applications consistently across environments.
+- __Azure Container Instances:__ Quick, serverless container deployment option in Azure.
+- __Azure Container Apps:__ Managed service for running microservices and containerized apps.
+- __Azure Kubernetes Service (AKS):__ Managed Kubernetes service for orchestrating containerized applications.
+- __Virtual machine scale sets:__ Automatically scale VM instances to meet demand.
+- __Virtual machine availability sets:__ Group of VMs distributed across fault and update domains for high availability.
+- __Azure Rest API:__ Azure's REST API is an interface that lets you manage and interact with Azure services using standard HTTP methods like GET, POST, PUT, and DELETE
+- __Update Domain:__ Logical group of VMs updated together to minimize downtime.
+- __Fault Domain:__ Group of VMs sharing common hardware, isolated to reduce risk of simultaneous failure.
+- __Lift and Shift:__ Migrating applications to the cloud without redesigning them.
+- __Azure Virtual Desktop:__ Desktop and app virtualization service hosted on Azure.
+- __Resources required for virtual machines:__ Include compute, storage, networking, and OS configurations.
+- __Web Apps in Azure App Service:__ Platform for hosting web applications with built-in scaling and security.
+- __Azure Virtual Networks (VNet):__ Private network space in Azure for securely connecting resources.
+- __Azure Subnets:__ Segments within a VNet for organizing and securing resources.
+- __VNet Peering:__ Connects two VNets for seamless communication.
+- __Azure DNS:__ Hosts domain name system records using Azure infrastructure.
+- __Azure VPN Gateway:__ Connects on-premises networks to Azure via encrypted tunnels.
+- __Azure ExpressRoute:__ Dedicated private connection between on-premises infrastructure and Azure.
+- __Public Endpoints in Azure:__ Allow internet access to Azure resources.
+- __Private Endpoints in Azure:__ Securely connect to Azure services over a private IP.
+- __Azure Storage Services:__ 
+    - __Azure Blob Storage:__ Object storage for unstructured data like images, videos, and backups; highly scalable and cost-effective.
+    - __Azure Files:__ Fully managed file shares in the cloud accessible via SMB or NFS protocols; ideal for lift-and-shift applications.
+    - __Azure Disk Storage:__ High-performance block storage for Azure VMs, containers, and applications requiring consistent IOPS and low latency.
+    - __Data Lake Storage Gen2:__ Combines big data analytics with hierarchical namespace and file system semantics; optimized for analytics workloads.
+    - __Azure File Sync:__ Extends on-premises Windows Server file shares to Azure Files, enabling cloud tiering and centralized backup.
+    - __Azure Data Box:__ Physical appliance for secure, offline transfer of large volumes of data to Azure when network upload is impractical.
+    - __Data Box Gateway:__ Virtual appliance that transfers data to Azure Storage over the network in real time; ideal for ongoing data ingestion.
+    - __Azure NetApp Files:__ Enterprise-grade file storage with high performance and low latency, supporting NFS and SMB; great for SAP and HPC workloads.
+    - __Azure Managed Lustre:__ Managed parallel file system built on Lustre, optimized for high-performance computing and AI/ML workloads.
+    - __Azure Container Storage:__ Dynamic, high-performance storage volumes for Kubernetes workloads, integrated with Azure Kubernetes Service (AKS).
+    - __Azure Stack Edge:__ Edge computing device with built-in storage and compute capabilities; supports AI/ML inferencing and data preprocessing at the edge.
+- __HPC:__ High Performance Computing; uses powerful compute resources for complex tasks.
+- __Storage Accounts:__ Containers for managing Azure storage services.
+    - __Hot tier:__ Optimized for frequently accessed data.
+    - __Cool tier:__ For infrequently accessed data with lower storage costs.
+    - __Cold tier:__ Lower-cost storage for rarely accessed data.
+    - __Archive tier:__ Lowest-cost storage for long-term archival data.
+- __Storage Types:__
+    - __Standard General-Purpose v2 (GPv2):__ A versatile Azure storage account type that supports all storage services—Blobs, Files, Queues, and Tables—with access tiers (Hot, Cool, Archive) for cost optimization. Ideal for most workloads.
+    - __Premium Block Blobs:__ High-performance storage optimized for frequent read/write operations on unstructured data like images, videos, and logs. Offers low latency and high throughput, making it ideal for real-time analytics and media processing.
+    - __Premium File Shares:__ Enterprise-grade file storage built on solid-state drives (SSDs), offering high IOPS and low latency. Best suited for workloads like databases, VDI profiles, and high-performance applications that require fast file access.
+    - __Premium Page Blobs:__ Optimized for random read/write access and used primarily for Azure virtual machine disks (OS and data disks). Backed by SSDs, they deliver consistent performance for I/O-intensive workloads.
+- __Redundancy Definition:__ Redundancy in computing refers to duplicating critical components or data to ensure system reliability and availability in case of failure.
+- __Redundancy Options:__
+    - __Locally Redundant Storage (LRS):__ Replicates data within a single data center.
+    - __Zone-Redundant Storage (ZRS):__ Replicates data across multiple zones in a region.
+    - __Geo-Redundant Storage (GRS):__ Replicates data to a secondary region for disaster recovery.
+    - __Read-Access Geo-Redundant Storage (RA-GRS):__ GRS with read access to secondary region.
+    - __Geo-Zone-Redundant Storage (GZRS):__ Combines ZRS and GRS for high availability and disaster recovery.
+    - __Read-Access Geo-Zone-Redundant Storage (RA-GZRS):__ GZRS with read access to secondary region.
+- __AzCopy:__ Command-line tool for data transfer to/from Azure Storage.
+- __Azure Storage Explorer:__ GUI tool for managing Azure Storage resources.
+- __Azure Migrate:__ Service for assessing and migrating workloads to Azure.
+- __Microsoft Entra ID:__ Identity and access management service for Azure and Microsoft 365.
+- __Microsoft Entra Connect:__ Syncs on-premises directories with Microsoft Entra ID.
+- __Microsoft Entra Domain Services:__ Provides managed domain services like domain join and group policy without needing to deploy domain controllers.
+- __Domain join:__ Adds devices to a domain for centralized management.
+- __Group policy:__ Windows feature for managing user and computer settings.
+- __LDAP:__ Lightweight Directory Access Protocol for accessing directory services.
+- __Kerberos/NTLM authentication:__ Protocols for secure authentication in Windows environments.
+- __Connect Sync:__ Synchronizes identities between on-premises and cloud environments.
+- __Single sign-on (SSO):__ Allows users to access multiple apps with one login.
+- __Microsoft Entra multifactor authentication:__ Adds a second verification step to user sign-in.
+- __Passwordless authentication:__ Authenticates users without passwords using biometrics or security keys.
+- __FIDO2 security keys:__ Hardware-based authentication for passwordless sign-in.
+- __Microsoft Entra External ID:__ Manages external identities like partners and customers.
+- __Business to business (B2B) collaboration:__ Letting external users use their preferred identity to sign-in to your Microsoft apps as guests.
+- __B2B direct connect:__ A mutual, two-way trust with another Microsoft Entra organization for seamless collaboration.
+- __Azure Active Directory business to customer (B2C):__ Identity management for consumer-facing apps.
+- __Conditional Access (As a concept):__ Policies that enforce access controls based on conditions.
+- __Microsoft Entra Conditional Access:__ Microsoft's Zero Trust policy engine for access control.
+- __Zero Trust:__ Security model that assumes no implicit trust and verifies every access request.
+- __Defense-in-depth model:__ Multi-layered security approach to protect data and systems.
+- __Physical security Layer:__ Protects hardware and facilities.
+- __Identity and access Layer:__ Controls user access and authentication.
+- __Perimeter Layer:__ Secures network boundaries.
+- __Network Layer:__ Protects internal network traffic.
+- __Compute Layer:__ Secures virtual machines and compute resources.
+- __Application Layer:__ Protects applications from threats.
+- __Data Layer:__ Ensures data confidentiality and integrity.
+- __CSPM:__ Cloud Security Posture Management
+- __Factors that can affect costs in Azure:__
+    - Resource Type/Settings/Location
+    - Consumption
+    - Maintenance
+    - Geography
+    - Subscription type
+    - Azure Marketplace
+- __Azure Marketplace:__ Online store offering certified applications and services from Microsoft and third-party vendors.
+- __Pricing calculator:__ Tool to estimate costs of Azure services based on configuration and usage.
+- __Tags:__ Metadata labels used to organize and track Azure resources for cost and management purposes.
+- __Azure Governance:__ Framework for managing policies, access, and compliance across Azure environments.
+- __Governance and compliance tools in Azure:__
+    - __Azure Policy:__ Service for enforcing organizational standards and assessing compliance at scale.
+        - __Azure Policy initiatives:__ Collections of policies grouped to achieve a broader compliance goal.
+    - __Blueprints:__ Templates in Azure that help deploy compliant environments with predefined resources and policies.
+    - __Management groups:__ Hierarchical containers for organizing subscriptions in Azure.
+    - __Azure role-based access control (RBAC):__ Manages access to Azure resources based on roles.
+    - __Cost Management Tool:__ Helps monitor, analyze, and optimize cloud spending across subscriptions and resources.
+    - __Microsoft Defender for Cloud:__ Security management and threat protection service. It does the following:
+        - Key Terms:
+            - __Assess:__ Evaluates security posture.
+            - __Secure:__ Applies security recommendations.
+            - __Defend:__ Detects and responds to threats.
+        - __Microsoft Defender for Containers:__ Protects containerized workloads.
+        - __Microsoft Defender for Servers:__ Secures server workloads.
+    - __Microsoft Purview:__ Unified data governance service that helps discover, classify, and manage data across environments.
+        - __Microsoft Purview risk and compliance solutions:__ Tools for data loss prevention, insider risk management, and regulatory compliance.
+    - __Azure Monitor:__ Collects and analyzes telemetry data for performance and health monitoring.
+        - __Azure Log Analytics:__ Tool within Azure Monitor for querying and analyzing log data.
+        - __Azure Monitor Alerts:__ Notifications triggered by metrics or log conditions to inform users of issues.
+        - __Application Insights:__ Monitors live applications, providing performance metrics and diagnostics.
+    - __Azure Advisor:__ Personalized recommendations to optimize performance, security, and cost of Azure resources.
+- __Unified data governance:__ Centralized approach to managing data access, classification, and lifecycle across hybrid environments.
+- __Resource locks:__ Prevent accidental deletion or modification of critical Azure resources.
+- __Azure REST API:__ Allows programmatic access to Azure services using HTTP requests.
+- __Azure portal:__ Web-based interface for managing and monitoring Azure resources.
+- __Azure PowerShell:__ Command-line tool for automating Azure tasks using PowerShell scripts.
+- __Azure Command Line Interface (CLI):__ Cross-platform command-line tool for managing Azure resources.
+- __Azure Cloud Shell:__ Browser-based shell with pre-installed tools for managing Azure resources.
+- __Azure Arc:__ Extends Azure management and services to on-premises, multi-cloud, and edge environments.
+- __Azure Resource Manager (ARM):__ Deployment and management service for Azure resources using declarative templates.
+- __ARM templates:__ JSON files defining infrastructure and configuration for automated deployment.
+- __Azure Resource Manager benefits:__ Include consistent management, role-based access control, and dependency handling.
+- __Bicep:__ Domain-specific language for deploying Azure resources, simplifying ARM templates.
+- __Infrastructure as code (IaC):__ Practice of managing infrastructure through code for repeatable, automated deployments.
+- __Azure Service Health:__ Provides alerts and guidance for service issues affecting Azure resources.

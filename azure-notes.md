@@ -236,10 +236,10 @@ In practice, this means:
 - Tools for protection:
     e.g.:
     - Azure Firewall
-    - Security Center
+    - Defender for Cloud
     - Defender
 
-### Governance 
+### Azure Governance 
 governance ensures your cloud resources stay compliant, consistent, and under control
 
 In practice, this means:
@@ -249,6 +249,13 @@ In practice, this means:
     - Blueprints
 - Automatic Updates to Standards across the whole cloud environment.
 - Centralized Management over who can deploy what, where, and how.
+
+__Tools:__
+Azure Policy
+Azure Blueprints
+Azure Management Groups
+Role-Based Access Control (RBAC)
+Azure Defender for Cloud
 
 ### Describe the benefits of manageability in the cloud 
 Manageability is how you manage your cloud resources.
@@ -1523,7 +1530,7 @@ The following capabilities make up External Identities:
 
 3. Microsoft Azure Active Directory business to customer (B2C)
 
-    Publish apps to consumers while using Azure AD B2C for identity and access management.
+    Identity management for consumer-facing apps.
 
 Microsoft Entra B2B feature enables guest users from other tenants to be invited by administrators/other users.
 
@@ -1812,7 +1819,7 @@ For example, if you've connected an Amazon Web Services (AWS) account to an Azur
 - __Microsoft Defender for Containers__ extends container threat detection + defenses to Amazon EKS Linux clusters.
 - __Microsoft Defender for Servers__ brings threat detection + defenses to your Windows and Linux EC2 instances.
 
-#### Asses, Secure, Defend
+#### Assess, Secure, Defend
 - Continuously assess
     - Aim:
         - Know your security posture
@@ -2139,7 +2146,7 @@ Helps an organization:
 - Generate insights about how your data is stored and used.
 - Manage access to the data in your estate securely and at scale.
 
-### Describe the purpose of Azure Policy 
+### Azure Policy 
 A service that enables you to create, assign, and manage policies that control/audit your resources.
 
 These policies enforce different rules across your resource configurations so those configurations stay compliant with corporate standards.
@@ -2165,7 +2172,7 @@ Azure Policy comes with built-in policy and initiative definitions for:
 - Storage
 - Networking
 - Compute
-- Security Center
+- Defender for Cloud
 - Monitoring
 
 > For example, if a policy is defined that only allows virtual machines with a certainsize to be used, that policy is invoked a new VM is made and when existing VMs are resized.
@@ -2190,18 +2197,18 @@ A way of grouping related policies together.
 The initiative definition contains all of the policy definitions to help track your compliance state for a larger goal.
 
 Example:
-> The `Enable Monitoring` initiative in `Azure Security Center` monitors all security recommendations across all Azure resource types.
+> The `Enable Monitoring` initiative in `Azure Defender for Cloud` monitors all security recommendations across all Azure resource types.
 
 Under this initiative, the following policy definitions are included:
-- Monitor unencrypted SQL Database in Security Center
+- Monitor unencrypted SQL Database in Defender for Cloud
 
     This policy monitors for unencrypted SQL databases and servers.
 
-- Monitor OS vulnerabilities in Security Center
+- Monitor OS vulnerabilities in Defender for Cloud
 
     This policy monitors servers that don't satisfy the configured OS vulnerability baseline.
 
-- Monitor missing Endpoint Protection in Security Center
+- Monitor missing Endpoint Protection in Defender for Cloud
 
     This policy monitors for servers that don't have an installed endpoint protection agent.
 

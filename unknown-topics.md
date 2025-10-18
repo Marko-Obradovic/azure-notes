@@ -1,0 +1,103 @@
+- __Benefits of using cloud services:__
+    - scalability
+    - cost-efficiency
+    - high availability
+    - rapid deployment
+- __Azure Governance:__ Framework for managing policies, access, and compliance across Azure environments.
+- __Governance and compliance tools in Azure:__
+    - __Azure Policy:__ Service for enforcing organizational standards and assessing compliance at scale.
+        - __Azure Policy initiatives:__ Collections of policies grouped to achieve a broader compliance goal.
+    - __Blueprints:__ Templates in Azure that help deploy compliant environments with predefined resources and policies.
+    - __Management groups:__ Hierarchical containers for organizing subscriptions in Azure.
+    - __Azure role-based access control (RBAC):__ Manages access to Azure resources based on roles.
+    - __Cost Management Tool:__ Helps monitor, analyze, and optimize cloud spending across subscriptions and resources.
+    - __Microsoft Defender for Cloud:__ Security management and threat protection service. It does the following:
+        - __Assess:__ Evaluates security posture.
+        - __Secure:__ Applies security recommendations.
+        - __Defend:__ Detects and responds to threats.
+    - __Microsoft Purview:__ Unified data governance service that helps discover, classify, and manage data across environments.
+        - __Microsoft Purview risk and compliance solutions:__ Tools for data loss prevention, insider risk management, and regulatory compliance.
+    - __Azure Monitor:__ Collects and analyzes telemetry data for performance and health monitoring.
+        - __Azure Log Analytics:__ Tool within Azure Monitor for querying and analyzing log data.
+        - __Azure Monitor Alerts:__ Notifications triggered by metrics or log conditions to inform users of issues.
+        - __Application Insights:__ Monitors live applications, providing performance metrics and diagnostics.
+    - __Azure Advisor:__ Personalized recommendations to optimize performance, security, and cost of Azure resources.
+- __Unified data governance:__ Centralized approach to managing data access, classification, and lifecycle across hybrid environments.
+- __Manageability in the cloud:__ Refers to tools and practices for monitoring, configuring, and maintaining cloud resources.
+- __Metrics blade:__ Azure portal feature displaying performance metrics for resources.
+- __Deployments blade:__ Shows deployment history and status of resources in Azure.
+- __Policy blade:__ Interface for managing Azure policies that enforce organizational standards.
+- __Diagnostics settings blade:__ Configures logging and monitoring for Azure resources.
+- __Subscriptions:__ Units of Azure service access and billing, tied to a user or organization.
+- __Billing boundary:__ Defines the scope for invoicing and payment within Azure.
+- __Access control boundary:__ Determines who can access and manage Azure resources.
+- __Azure Container Apps:__ Managed service for running microservices and containerized apps.
+- __Update Domain:__ Logical group of VMs updated together to minimize downtime.
+- __Fault Domain:__ Group of VMs sharing common hardware, isolated to reduce risk of simultaneous failure.
+- __Resources required for virtual machines:__ Include compute, storage, networking, and OS configurations.
+- __Web Apps in Azure App Service:__ Platform for hosting web applications with built-in scaling and security.
+- __Azure Virtual Networks (VNet):__ Private network space in Azure for securely connecting resources.
+- __Azure Firewall:__ A managed, cloud-based network security service that protects Azure Virtual Network resources.
+- __VNet Peering:__ Connects two VNets for seamless communication.
+- __Azure VPN Gateway:__ Connects on-premises networks to Azure via encrypted tunnels.
+- __Azure ExpressRoute:__ Dedicated private connection between on-premises infrastructure and Azure.
+- __Azure Storage Services:__ 
+    - __Azure Blob Storage:__ Object storage for unstructured data like images, videos, and backups; highly scalable and cost-effective.
+    - __Azure Files:__ Fully managed file shares in the cloud accessible via SMB or NFS protocols; ideal for lift-and-shift applications.
+    - __Azure Disk Storage:__ High-performance block storage for Azure VMs, containers, and applications requiring consistent IOPS and low latency.
+    - __Data Lake Storage Gen2:__ Combines big data analytics with hierarchical namespace and file system semantics; optimized for analytics workloads.
+    - __Azure File Sync:__ Extends on-premises Windows Server file shares to Azure Files, enabling cloud tiering and centralized backup.
+    - __Azure Data Box:__ Physical appliance for secure, offline transfer of large volumes of data to Azure when network upload is impractical.
+    - __Data Box Gateway:__ Virtual appliance that transfers data to Azure Storage over the network in real time; ideal for ongoing data ingestion.
+    - __Azure NetApp Files:__ Enterprise-grade file storage with high performance and low latency, supporting NFS and SMB; great for SAP and HPC workloads.
+    - __Azure Managed Lustre:__ Managed parallel file system built on Lustre, optimized for high-performance computing and AI/ML workloads.
+    - __Azure Container Storage:__ Dynamic, high-performance storage volumes for Kubernetes workloads, integrated with Azure Kubernetes Service (AKS).
+    - __Azure Stack Edge:__ Edge computing device with built-in storage and compute capabilities; supports AI/ML inferencing and data preprocessing at the edge.
+- __HPC:__ High Performance Computing; uses powerful compute resources for complex tasks.
+- __Azure Stack Edge:__ Edge computing device with AI capabilities and local data processing.
+- __Storage Accounts:__ Containers for managing Azure storage services.
+    - __Hot tier:__ Optimized for frequently accessed data.
+    - __Cool tier:__ For infrequently accessed data with lower storage costs.
+    - __Cold tier:__ Lower-cost storage for rarely accessed data.
+    - __Archive tier:__ Lowest-cost storage for long-term archival data.
+- __Storage Types:__
+    - __Standard General-Purpose v2 (GPv2):__ A versatile Azure storage account type that supports all storage services—Blobs, Files, Queues, and Tables—with access tiers (Hot, Cool, Archive) for cost optimization. Ideal for most workloads.
+    - __Premium Block Blobs:__ High-performance storage optimized for frequent read/write operations on unstructured data like images, videos, and logs. Offers low latency and high throughput, making it ideal for real-time analytics and media processing.
+    - __Premium File Shares:__ Enterprise-grade file storage built on solid-state drives (SSDs), offering high IOPS and low latency. Best suited for workloads like databases, VDI profiles, and high-performance applications that require fast file access.
+    - __Premium Page Blobs:__ Optimized for random read/write access and used primarily for Azure virtual machine disks (OS and data disks). Backed by SSDs, they deliver consistent performance for I/O-intensive workloads.
+- __Redundancy Definition:__ Redundancy in computing refers to duplicating critical components or data to ensure system reliability and availability in case of failure.
+- __Redundancy Options:__
+    - __Locally Redundant Storage (LRS):__ Replicates data within a single data center.
+    - __Zone-Redundant Storage (ZRS):__ Replicates data across multiple zones in a region.
+    - __Geo-Redundant Storage (GRS):__ Replicates data to a secondary region for disaster recovery.
+    - __Read-Access Geo-Redundant Storage (RA-GRS):__ GRS with read access to secondary region.
+    - __Geo-Zone-Redundant Storage (GZRS):__ Combines ZRS and GRS for high availability and disaster recovery.
+    - __Read-Access Geo-Zone-Redundant Storage (RA-GZRS):__ GZRS with read access to secondary region.
+- __Azure Storage Explorer:__ GUI tool for managing Azure Storage resources.
+- __Azure Migrate:__ Service for assessing and migrating workloads to Azure.
+- __Microsoft Entra ID:__ Identity and access management service for Azure and Microsoft 365.
+- __Microsoft Entra Connect:__ Syncs on-premises directories with Microsoft Entra ID.
+- __Microsoft Entra Domain Services:__ Provides managed domain services like domain join and group policy without needing to deploy domain controllers.
+- __Domain join:__ Adds devices to a domain for centralized management.
+- __Group policy:__ Windows feature for managing user and computer settings.
+- __LDAP:__ Lightweight Directory Access Protocol for accessing directory services.
+- __Kerberos/NTLM authentication:__ Protocols for secure authentication in Windows environments.
+- __Connect Sync:__ Synchronizes identities between on-premises and cloud environments.
+- __Single sign-on (SSO):__ Allows users to access multiple apps with one login.
+- __FIDO2 security keys:__ Hardware-based authentication for passwordless sign-in.
+- __Business to business (B2B) collaboration:__ Letting external users use their preferred identity to sign-in to your Microsoft apps as guests.
+- __B2B direct connect:__ A mutual, two-way trust with another Microsoft Entra organization for seamless collaboration.
+- __Azure Active Directory business to customer (B2C):__ Identity management for consumer-facing apps.
+- __Conditional Access (As a concept):__ Policies that enforce access controls based on conditions.
+- __Microsoft Entra Conditional Access:__ Microsoft's Zero Trust policy engine for access control.
+- __Defense-in-depth model:__ Multi-layered security approach to protect data and systems.
+- __Factors that can affect costs in Azure:__
+    - Resource Type/Settings/Location
+    - Consumption
+    - Maintenance
+    - Geography
+    - Subscription type
+    - Azure Marketplace
+- __Azure Rest API:__ Azure's REST API is an interface that lets you manage and interact with Azure services using standard HTTP methods like GET, POST, PUT, and DELETE
+- __Azure Arc:__ Extends Azure management and services to on-premises, multi-cloud, and edge environments.
+- __Azure Service Health:__ Provides alerts and guidance for service issues affecting Azure resources.
