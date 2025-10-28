@@ -21,7 +21,6 @@ SLA
 Azure Firewall
 Security Center
 Blueprints
-Manageability in the cloud 
 Service Types
     Infrastructure as a Service (IaaS)
     Platform as a Service (PaaS)
@@ -141,8 +140,6 @@ Tags
 Azure Governance 
 Governance and compliance tools in Azure 
 Microsoft Purview 
-Microsoft Purview risk and compliance solutions
-Unified data governance
 Azure Policy
 Azure Policy initiatives
 Resource locks 

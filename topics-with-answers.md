@@ -23,7 +23,6 @@
 - __Cost Predictability:__ Ability to forecast expenses based on usage and pricing models.
 - __SLA:__ Service Level Agreement; a contract defining performance standards and uptime guarantees.
 - __Azure Firewall:__ A managed, cloud-based network security service that protects Azure Virtual Network resources.
-- __Manageability in the cloud:__ Refers to tools and practices for monitoring, configuring, and maintaining cloud resources.
 - __Infrastructure as a Service (IaaS):__ Provides virtualized computing resources over the internet.
 - __Platform as a Service (PaaS):__ Offers hardware and software tools over the internet, typically for app development.
 - __Software as a Service (SaaS):__ Delivers software applications over the internet on a subscription basis.
@@ -38,11 +37,11 @@
 - __Resource Groups:__ Containers that hold related Azure resources for unified management.
 - __Metrics blade:__ Azure portal feature displaying performance metrics for resources.
 - __Deployments blade:__ Shows deployment history and status of resources in Azure.
-- __Policy blade:__ Interface for managing Azure policies that enforce organizational standards.
+- __Policy blade:__ Interface for managing Azure policies.
 - __Diagnostics settings blade:__ Configures logging and monitoring for Azure resources.
 - __Management groups:__ Hierarchical containers for organizing subscriptions in Azure.
-- __Subscriptions:__ Units of Azure service access and billing, tied to a user or organization.
-- __Billing boundary:__ Defines the scope for invoicing and payment within Azure.
+- __Subscriptions:__ A logical container used to provision resources in Azure
+- __Billing boundary:__ Defines the scope within which costs are aggregated and billed together, such as the level of a subscription.
 - __Access control boundary:__ Determines who can access and manage Azure resources.
 - __Functions:__ Serverless compute service in Azure for running event-driven code.
 - __Containers (As a concept):__ Lightweight, portable units for running applications consistently across environments.
@@ -141,7 +140,7 @@
 - __Azure Governance:__ Framework for managing policies, access, and compliance across Azure environments.
 - __Governance and compliance tools in Azure:__
     - __Azure Policy:__ Service for enforcing organizational standards and assessing compliance at scale.
-        - __Azure Policy initiatives:__ Collections of policies grouped to achieve a broader compliance goal.
+        - __Azure Policy initiatives:__ A way of grouping policies together
     - __Blueprints:__ Templates in Azure that help deploy compliant environments with predefined resources and policies.
     - __Management groups:__ Hierarchical containers for organizing subscriptions in Azure.
     - __Azure role-based access control (RBAC):__ Manages access to Azure resources based on roles.
@@ -154,13 +153,11 @@
         - __Microsoft Defender for Containers:__ Protects containerized workloads.
         - __Microsoft Defender for Servers:__ Secures server workloads.
     - __Microsoft Purview:__ Unified data governance service that helps discover, classify, and manage data across environments.
-        - __Microsoft Purview risk and compliance solutions:__ Tools for data loss prevention, insider risk management, and regulatory compliance.
     - __Azure Monitor:__ Collects and analyzes telemetry data for performance and health monitoring.
         - __Azure Log Analytics:__ Tool within Azure Monitor for querying and analyzing log data.
         - __Azure Monitor Alerts:__ Notifications triggered by metrics or log conditions to inform users of issues.
         - __Application Insights:__ Monitors live applications, providing performance metrics and diagnostics.
     - __Azure Advisor:__ Personalized recommendations to optimize performance, security, and cost of Azure resources.
-- __Unified data governance:__ Centralized approach to managing data access, classification, and lifecycle across hybrid environments.
 - __Resource locks:__ Prevent accidental deletion or modification of critical Azure resources.
 - __Azure REST API:__ Allows programmatic access to Azure services using HTTP requests.
 - __Azure portal:__ Web-based interface for managing and monitoring Azure resources.

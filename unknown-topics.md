@@ -5,31 +5,32 @@
     - rapid deployment
 - __Azure Governance:__ Framework for managing policies, access, and compliance across Azure environments.
 - __Governance and compliance tools in Azure:__
-    - __Azure Policy:__ Service for enforcing organizational standards and assessing compliance at scale.
-        - __Azure Policy initiatives:__ Collections of policies grouped to achieve a broader compliance goal.
+- (BADCRMMPP)
     - __Blueprints:__ Templates in Azure that help deploy compliant environments with predefined resources and policies.
-    - __Management groups:__ Hierarchical containers for organizing subscriptions in Azure.
-    - __Azure role-based access control (RBAC):__ Manages access to Azure resources based on roles.
-    - __Cost Management Tool:__ Helps monitor, analyze, and optimize cloud spending across subscriptions and resources.
-    - __Microsoft Defender for Cloud:__ Security management and threat protection service. It does the following:
+    - __Azure Advisor:__ Personalized recommendations to optimize performance, security, and cost of Azure resources.
+    - __Defender for Cloud:__ Security management and threat protection service. It does the following:
         - __Assess:__ Evaluates security posture.
         - __Secure:__ Applies security recommendations.
         - __Defend:__ Detects and responds to threats.
-    - __Microsoft Purview:__ Unified data governance service that helps discover, classify, and manage data across environments.
-        - __Microsoft Purview risk and compliance solutions:__ Tools for data loss prevention, insider risk management, and regulatory compliance.
+    - __Cost Management Tool:__ Helps monitor, analyze, and optimize cloud spending across subscriptions and resources.
+    - __Role-based access control (RBAC):__ Manages access to Azure resources based on roles.
+    - __Management groups:__ Hierarchical containers for organizing subscriptions in Azure.
     - __Azure Monitor:__ Collects and analyzes telemetry data for performance and health monitoring.
+    LA
+    MA
+    AI
         - __Azure Log Analytics:__ Tool within Azure Monitor for querying and analyzing log data.
         - __Azure Monitor Alerts:__ Notifications triggered by metrics or log conditions to inform users of issues.
         - __Application Insights:__ Monitors live applications, providing performance metrics and diagnostics.
-    - __Azure Advisor:__ Personalized recommendations to optimize performance, security, and cost of Azure resources.
-- __Unified data governance:__ Centralized approach to managing data access, classification, and lifecycle across hybrid environments.
-- __Manageability in the cloud:__ Refers to tools and practices for monitoring, configuring, and maintaining cloud resources.
+    - __Microsoft Purview:__ Unified data governance service that helps discover, classify, and manage data across environments.
+    - __Azure Policy:__ Service for enforcing organizational standards and assessing compliance at scale.
+        - __Azure Policy initiatives:__ A way of grouping policies together
 - __Metrics blade:__ Azure portal feature displaying performance metrics for resources.
 - __Deployments blade:__ Shows deployment history and status of resources in Azure.
-- __Policy blade:__ Interface for managing Azure policies that enforce organizational standards.
+- __Policy blade:__ Interface for managing Azure policies.
 - __Diagnostics settings blade:__ Configures logging and monitoring for Azure resources.
-- __Subscriptions:__ Units of Azure service access and billing, tied to a user or organization.
-- __Billing boundary:__ Defines the scope for invoicing and payment within Azure.
+- __Subscriptions:__ A logical container used to provision resources in Azure
+- __Billing boundary:__ Defines the scope within which costs are aggregated and billed together, such as the level of a subscription.
 - __Access control boundary:__ Determines who can access and manage Azure resources.
 - __Azure Container Apps:__ Managed service for running microservices and containerized apps.
 - __Update Domain:__ Logical group of VMs updated together to minimize downtime.
