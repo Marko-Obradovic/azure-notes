@@ -1,8 +1,9 @@
 - __Benefits of using cloud services:__
+SHRC
     - scalability
-    - cost-efficiency
     - high availability
     - rapid deployment
+    - cost-efficiency
 - __Azure Governance:__ Framework for managing policies, access, and compliance across Azure environments.
 - __Governance and compliance tools in Azure:__
 - (BADCRMMPP)
@@ -36,6 +37,7 @@
 - __Update Domain:__ Logical group of VMs updated together to minimize downtime.
 - __Fault Domain:__ Group of VMs sharing common hardware, isolated to reduce risk of simultaneous failure.
 - __Resources required for virtual machines:__ Include compute, storage, networking, and OS configurations.
+- __Network Security Groups (NSGs)__: Used to define network security rules that allow/deny inbound and outbound traffic to VMs/subnets. This protects VMs from unwanted traffic.
 - __Web Apps in Azure App Service:__ Platform for hosting web applications with built-in scaling and security.
 - __Azure Virtual Networks (VNet):__ Private network space in Azure for securely connecting resources.
 - __Azure Firewall:__ A managed, cloud-based network security service that protects Azure Virtual Network resources.

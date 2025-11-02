@@ -19,7 +19,6 @@ Performance Predictability
 Cost Predictability
 SLA
 Azure Firewall
-Security Center
 Blueprints
 Service Types
     Infrastructure as a Service (IaaS)
