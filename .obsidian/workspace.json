@@ -11,12 +11,10 @@
             "id": "889a96c78309eff0",
             "type": "leaf",
             "state": {
-              "type": "image",
-              "state": {
-                "file": "Pasted image 20251101155445.png"
-              },
-              "icon": "lucide-image",
-              "title": "Pasted image 20251101155445"
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
             }
           }
         ]
@@ -169,12 +167,15 @@
   },
   "active": "889a96c78309eff0",
   "lastOpenFiles": [
+    "Untitled.canvas",
+    "azure-mindmap.canvas",
+    "t.md",
+    "Pasted image 20251102190326.png",
+    "Pasted image 20251101155445.png",
     "Pasted image 20251101152752.png",
     "Pasted image 20251031144423.png",
     "Pasted image 20250731104801.png",
     "Pasted image 20250731105229.png",
-    "Pasted image 20250731105346.png",
-    "Pasted image 20251101155445.png",
-    "azure-mindmap.canvas"
+    "Pasted image 20250731105346.png"
   ]
 }
